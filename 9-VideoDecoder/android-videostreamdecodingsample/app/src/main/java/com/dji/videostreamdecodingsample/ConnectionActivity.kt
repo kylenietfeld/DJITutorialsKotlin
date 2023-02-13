@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import dji.sdk.sdkmanager.DJISDKManager
+import org.opencv.android.OpenCVLoader
 
 /*
 This activity manages SDK registration and establishing a connection between the
@@ -25,6 +26,8 @@ class ConnectionActivity : AppCompatActivity() {
     private lateinit var mVersionTv: TextView
 
     private val model: ConnectionViewModel by viewModels() //linking the activity to a viewModel
+
+
 
     companion object {
         const val TAG = "ConnectionActivity"
@@ -58,10 +61,14 @@ class ConnectionActivity : AppCompatActivity() {
                 Manifest.permission.READ_PHONE_STATE
             ), 1)
 
-        //Initialize the UI, register the app with DJI's mobile SDK, and set up the observers
-        initUI()
-        model.registerApp()
-        observers()
+
+        //Checks if OpenCV is loaded. If not, then no registration will occur
+        if (OpenCVLoader.initDebug()) {
+            //put inside by Kyle
+            initUI() //Initialize the UI, register the app with DJI's mobile SDK, and set up the observers
+            model.registerApp()
+            observers()
+        }
     }
 
     //Function to initialize the activity's UI
@@ -115,4 +122,5 @@ class ConnectionActivity : AppCompatActivity() {
             }
         })
     }
+
 }

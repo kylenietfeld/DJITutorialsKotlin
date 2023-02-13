@@ -29,11 +29,17 @@ import dji.sdk.camera.VideoFeeder
 import dji.sdk.codec.DJICodecManager
 import dji.sdk.sdkmanager.DJISDKManager
 import dji.thirdparty.afinal.core.AsyncTask
+import org.opencv.core.Mat
+import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.objdetect.QRCodeDetector
 import java.io.*
 import java.nio.ByteBuffer
 
 
 class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
+
+
+
     private var surfaceCallback: SurfaceHolder.Callback? = null
 
     private enum class DemoType {
@@ -501,19 +507,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             yuvFrame[length + 2 * i + 1] = v[i]
         }
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            screenShot(
-                yuvFrame,
-                applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot",
-                width,
-                height
-            )
+            screenShot(yuvFrame, applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot", width, height)
         } else {
-            screenShot(
-                yuvFrame,
-                Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot",
-                width,
-                height
-            )
+            screenShot(yuvFrame, Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot", width, height)
         }
     }
 
@@ -591,6 +587,18 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                 "test screenShot: compress yuv image error: $e"
             )
             e.printStackTrace()
+        }
+        //This section added by Kyle
+        val img = Imgcodecs.imread(path)
+        val decoder = QRCodeDetector()
+        val points = Mat()
+        val data = decoder.detectAndDecode(img, points)
+        if (points.empty()) {
+            runOnUiThread { displayPath("Nothing Found :(") }
+
+        }else{
+            runOnUiThread { displayPath(data) }
+
         }
         runOnUiThread { displayPath(path) }
     }
