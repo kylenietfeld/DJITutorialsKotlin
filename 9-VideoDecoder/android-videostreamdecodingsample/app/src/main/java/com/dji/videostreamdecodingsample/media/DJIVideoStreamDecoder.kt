@@ -645,19 +645,14 @@ class DJIVideoStreamDecoder private constructor() : NativeDataListener {
             if (outIndex >= 0) {
                 //Log.d(TAG, "decodeFrame: outIndex: " + outIndex);
                 if (surface == null && yuvDataListener != null) {
-                    // If the surface is null, the yuv data should be get from the buffer and invoke the callback.
+                    // If the surface is null, the yuv data should be received from the buffer and invoke the callback.
                     logd("decodeFrame: need callback")
                     val yuvDataBuf = codec!!.getOutputBuffer(outIndex)
                     yuvDataBuf!!.position(bufferInfo.offset)
                     yuvDataBuf.limit(bufferInfo.size - bufferInfo.offset)
+
                     if (yuvDataListener != null) {
-                        yuvDataListener!!.onYuvDataReceived(
-                            codec!!.outputFormat,
-                            yuvDataBuf,
-                            bufferInfo.size - bufferInfo.offset,
-                            width,
-                            height
-                        )
+                        yuvDataListener!!.onYuvDataReceived(codec!!.outputFormat, yuvDataBuf, bufferInfo.size - bufferInfo.offset, width, height)
                     }
                 }
                 // All the output buffer must be release no matter whether the yuv data is output or

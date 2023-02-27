@@ -1,10 +1,7 @@
 package com.dji.videostreamdecodingsample
 
 import android.app.Activity
-import android.graphics.ImageFormat
-import android.graphics.Rect
-import android.graphics.SurfaceTexture
-import android.graphics.YuvImage
+import android.graphics.*
 import android.media.MediaCodecInfo
 import android.media.MediaFormat
 import android.os.*
@@ -29,8 +26,14 @@ import dji.sdk.camera.VideoFeeder
 import dji.sdk.codec.DJICodecManager
 import dji.sdk.sdkmanager.DJISDKManager
 import dji.thirdparty.afinal.core.AsyncTask
+import org.opencv.core.CvType
 import org.opencv.core.Mat
+import org.opencv.core.MatOfByte
 import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.objdetect.ArucoDetector
+import org.opencv.objdetect.DetectorParameters
+import org.opencv.objdetect.Dictionary
+import org.opencv.imgproc.Imgproc
 import org.opencv.objdetect.QRCodeDetector
 import java.io.*
 import java.nio.ByteBuffer
@@ -73,6 +76,23 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var videoViewWidth = 0
     private var videoViewHeight = 0
     private var count = 0
+    private var countmax = 30
+    private var prevtime = System.currentTimeMillis()
+    private var curtime = System.currentTimeMillis()
+
+    private var doneProcessing: Boolean = true
+    private val decoder = QRCodeDetector()
+    private var points = Mat()
+    private var rgbMat = Mat()
+
+
+
+    private var ids = Mat()
+    private var yuvMat = Mat(1088 + 1088 / 2, 1632, CvType.CV_8UC1) //height = 1088, width = 1632
+
+
+
+
     override fun onResume() {
         super.onResume()
         initSurfaceOrTextureView()
@@ -119,6 +139,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUi()
+
+
+
         if (MainActivity.isM300Product) {
             val ocuSyncLink: OcuSyncLink? =
                 VideoDecodingApplication.productInstance?.airLink?.ocuSyncLink
@@ -158,7 +181,21 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         videostreamPreviewSf = findViewById<View>(R.id.livestream_preview_sf) as SurfaceView
         videostreamPreviewSf!!.isClickable = true
         videostreamPreviewSf!!.setOnClickListener {
-            val rate: Float = VideoFeeder.getInstance().transcodingDataRate
+            if (countmax == 30) {
+                countmax = 1
+                showToast("Countmax set rate to 1")
+            } else if (countmax == 1){
+                countmax = 10
+                showToast("Countmax set rate to 10")
+        } else if (countmax == 10){
+            countmax = 20
+            showToast("Countmax set rate to 20")
+        }
+            else{
+                countmax = 30;
+                showToast("Countmax set rate to 30")
+            }
+            /*val rate: Float = VideoFeeder.getInstance().transcodingDataRate
             showToast("current rate:" + rate + "Mbps")
             if (rate < 10) {
                 VideoFeeder.getInstance().transcodingDataRate = 10.0f
@@ -166,7 +203,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             } else {
                 VideoFeeder.getInstance().transcodingDataRate = 3.0f
                 showToast("set rate to 3Mbps")
-            }
+            }*/
         }
         updateUIVisibility()
     }
@@ -221,6 +258,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                     )
                     lastupdate = System.currentTimeMillis()
                 }
+               // val image = mCodecManager?.getBitmap(applicationContext)
+
+
                 when (demoType) {
                     DemoType.USE_SURFACE_VIEW -> mCodecManager?.sendDataToDecoder(videoBuffer, size)
                     DemoType.USE_SURFACE_VIEW_DEMO_DECODER ->
@@ -395,38 +435,92 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         videostreamPreviewSh!!.addCallback(surfaceCallback)
     }
 
-    override fun onYuvDataReceived(
-        format: MediaFormat,
-        yuvFrame: ByteBuffer?,
-        dataSize: Int,
-        width: Int,
-        height: Int
-    ) {
-        //In this demo, we test the YUV data by saving it into JPG files.
-        //DJILog.d(TAG, "onYuvDataReceived " + dataSize);
-        if (count++ % 30 == 0 && yuvFrame != null) {
+    override fun onYuvDataReceived(format: MediaFormat, yuvFrame: ByteBuffer?, dataSize: Int, width: Int, height: Int) {
+
+        if ( doneProcessing && yuvFrame != null) {
+
+            //Increase count of iterations and set doneProcessing to false so the code waits until processing is done to start another
+            count++
+            doneProcessing = false
+
+            //Fill bytes with YUV data
             val bytes = ByteArray(dataSize)
             yuvFrame[bytes]
-            //DJILog.d(TAG, "onYuvDataReceived2 " + dataSize);
-            AsyncTask.execute(Runnable {
-                // two samples here, it may has other color format.
-                when (format.getInteger(MediaFormat.KEY_COLOR_FORMAT)) {
-                    MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar ->                             //NV12
-                        if (Build.VERSION.SDK_INT <= 23) {
-                            oldSaveYuvDataToJPEG(bytes, width, height)
-                        } else {
-                            newSaveYuvDataToJPEG(bytes, width, height)
-                        }
-                    MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar ->                             //YUV420P
-                        newSaveYuvDataToJPEG420P(bytes, width, height)
-                    else -> {}
+
+            //Put the YUV data in an OpenCV mat
+            yuvMat.put(0, 0, bytes)
+
+            //Convert the YUV data to RGB data
+            Imgproc.cvtColor(yuvMat, rgbMat, Imgproc.COLOR_YUV2RGB_I420)
+
+            /*
+            //Detect QR Code and show result
+            var data = decoder.detectAndDecode(rgbMat, points)
+            if (count % 10 == 0) {
+                if (points.empty()) {
+                    runOnUiThread { displayPath("No QR Code Found ") }
+                } else {
+                    runOnUiThread { displayPath(data) }
                 }
-            })
+            }*/
+
+            //Detect ArUco Marker
+            val dictionary = Dictionary()
+
+            val parameters = DetectorParameters()
+
+            val corners  = mutableListOf<Mat>()
+
+            val detector = ArucoDetector()
+            detector.detectMarkers(rgbMat, corners , ids)
+
+            if (ids.total() > 0)  {
+                runOnUiThread { displayPath("Detected marker") }
+            }
+
+            if (ids.total() > 0 && count % 5 == 0)  {
+                for (i in 0 until ids.total().toInt()) {
+                    showToast("Detected marker with id: ${ids[i, 0][0]}")
+                }
+            } else {
+                runOnUiThread { displayPath("No markers detected") }
+            }
+
+            //Calculate frames/second and show toast
+            curtime = System.currentTimeMillis()
+            if (count % 10 == 0) {
+                showToast("Time (ms): ".plus(curtime.minus(prevtime)).toString().plus(", Height: ").plus(height).plus(", Width: ").plus(width))
+            }
+            prevtime = System.currentTimeMillis()
+
+            //Detection is done. Ready to start another.
+            doneProcessing = true
+
+/*
+            AsyncTask.execute(Runnable {
+                    // two samples here, it may have other color format.
+                    when (format.getInteger(MediaFormat.KEY_COLOR_FORMAT)) {
+                        MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar ->                             //NV12
+                            if (Build.VERSION.SDK_INT <= 23) {
+                                //oldSaveYuvDataToJPEG(bytes, width, height)
+
+                            } else {
+                                //newSaveYuvDataToJPEG(bytes, width, height)
+
+                            }
+                        MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar ->                             //YUV420P
+                            newSaveYuvDataToJPEG420P(bytes, width, height)
+                        else -> {}
+
+                    }
+                })*/
         }
     }
 
     // For android API <= 23
+/*
     private fun oldSaveYuvDataToJPEG(yuvFrame: ByteArray, width: Int, height: Int) {
+        showToast("oldSaveYuvDataToJPEG")
         if (yuvFrame.size < width * height) {
             //DJILog.d(TAG, "yuvFrame size is too small " + yuvFrame.length);
             return
@@ -490,7 +584,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         }
     }
 
+
     private fun newSaveYuvDataToJPEG(yuvFrame: ByteArray, width: Int, height: Int) {
+        showToast("newSaveYuvDataToJPEG")
         if (yuvFrame.size < width * height) {
             //DJILog.d(TAG, "yuvFrame size is too small " + yuvFrame.length);
             return
@@ -512,8 +608,10 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             screenShot(yuvFrame, Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot", width, height)
         }
     }
+*/
 
     private fun newSaveYuvDataToJPEG420P(yuvFrame: ByteArray, width: Int, height: Int) {
+        //showToast("newSaveYuvDataToJPEG420P")
         if (yuvFrame.size < width * height) {
             return
         }
@@ -529,37 +627,25 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             yuvFrame[length + 2 * i + 1] = u[i]
         }
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            screenShot(
-                yuvFrame,
-                applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot",
-                width,
-                height
-            )
+            screenShot(yuvFrame, applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot", width, height)
         } else {
-            screenShot(
-                yuvFrame,
-                Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot",
-                width,
-                height
-            )
+            screenShot(yuvFrame, Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot", width, height)
         }
     }
 
     /**
      * Save the buffered data into a JPG image file
      */
+
+
     private fun screenShot(buf: ByteArray, shotDir: String, width: Int, height: Int) {
         val dir = File(shotDir)
         if (!dir.exists() || !dir.isDirectory) {
             dir.mkdirs()
         }
-        val yuvImage = YuvImage(
-            buf,
-            ImageFormat.NV21,
-            width,
-            height,
-            null
-        )
+
+        val yuvImage = YuvImage(buf, ImageFormat.NV21, width, height, null)
+
         val outputFile: OutputStream
         val path = dir.toString() + "/ScreenShot_" + System.currentTimeMillis() + ".jpg"
         outputFile = try {
@@ -588,19 +674,31 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             )
             e.printStackTrace()
         }
+
         //This section added by Kyle
         val img = Imgcodecs.imread(path)
-        val decoder = QRCodeDetector()
-        val points = Mat()
-        val data = decoder.detectAndDecode(img, points)
-        if (points.empty()) {
-            runOnUiThread { displayPath("Nothing Found :(") }
 
+
+        val data = decoder.detectAndDecode(img, points)
+
+        //If QR code is scanned, print out the contents.
+        if (points.empty()) {
+            runOnUiThread { displayPath("No QR Code Found ") }
         }else{
             runOnUiThread { displayPath(data) }
-
         }
-        runOnUiThread { displayPath(path) }
+
+        //runOnUiThread { displayPath(path) }
+
+        //Calculate frames/second and show
+        curtime = System.currentTimeMillis()
+       // time = curtime.minus(prevtime)
+        //if(count%10==0) {runOnUiThread { displayPath(time.toString()) }}
+        if(count++ % 5==0) {showToast(curtime.minus(prevtime).toString().plus(" ").plus(count.toString()).plus(" ").plus(countmax.toString())          )    }
+        prevtime = System.currentTimeMillis()
+
+        doneProcessing = true //ready to process the next image
+
     }
 
     fun onClick(v: View) {
