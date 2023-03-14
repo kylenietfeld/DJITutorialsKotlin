@@ -1,9 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+//apply plugin: 'org.ros2.tools.gradle'
 
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url 'https://raw.githubusercontent.com/ros2-java/ros2_java/mvn_repo'
+    }
 }
 
 android {
@@ -112,4 +116,21 @@ dependencies {
     implementation "androidx.core:core-ktx:1.6.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Add ROS 2 dependencies
+    //implementation 'org.ros2.rcljava:rcljava:0.18.0'
+    //implementation 'org.ros2.rcljava:rcljava-commons:0.18.0'
+    //implementation 'org.ros2:rcljava-interfaces:0.8.3'
+    //implementation 'org.ros2:rcljava-msg:0.8.3'
+    //implementation 'org.ros2:rcljava-node:0.8.3'
+    //implementation 'org.ros2:rosidl-generator-java:0.8.3'
+
+
+    //Socket.io
+    implementation 'io.socket:socket.io-client:1.0.0'
+
+    //org.apache.commons.net.telnet.TelnetClient
+    implementation group: 'commons-net', name: 'commons-net', version: '3.8.0'
+
+
 }

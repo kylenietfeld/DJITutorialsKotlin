@@ -28,16 +28,27 @@ import dji.sdk.sdkmanager.DJISDKManager
 import dji.thirdparty.afinal.core.AsyncTask
 import org.opencv.core.CvType
 import org.opencv.core.Mat
+import org.opencv.core.Point
+import org.opencv.core.MatOfPoint2f
+import org.opencv.core.MatOfPoint3f
+import org.opencv.core.Point3
 import org.opencv.core.MatOfByte
+import org.opencv.core.MatOfDouble
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.objdetect.ArucoDetector
 import org.opencv.objdetect.DetectorParameters
 import org.opencv.objdetect.Dictionary
+import org.opencv.calib3d.Calib3d
 import org.opencv.imgproc.Imgproc
 import org.opencv.objdetect.QRCodeDetector
 import java.io.*
 import java.nio.ByteBuffer
-
+import io.socket.client.IO
+//import io.socket.client.Socket
+import java.net.Socket
+import java.io.BufferedReader
+import org.apache.commons.net.telnet.TelnetClient
+import java.io.InputStreamReader
 
 class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
@@ -90,6 +101,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var ids = Mat()
     private var yuvMat = Mat(1088 + 1088 / 2, 1632, CvType.CV_8UC1) //height = 1088, width = 1632
 
+    //private var socket: Socket? = null
+
+
 
 
 
@@ -139,7 +153,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUi()
-
+        connectToServer()
 
 
         if (MainActivity.isM300Product) {
@@ -159,6 +173,8 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             }
         }
     }
+
+
 
     private fun showToast(s: String) {
         mainHandler.sendMessage(
@@ -465,22 +481,23 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             }*/
 
             //Detect ArUco Marker
-            val dictionary = Dictionary()
-
-            val parameters = DetectorParameters()
+            //val dictionary = Dictionary()
+            //val parameters = DetectorParameters()
 
             val corners  = mutableListOf<Mat>()
 
             val detector = ArucoDetector()
             detector.detectMarkers(rgbMat, corners , ids)
 
-            if (ids.total() > 0)  {
-                runOnUiThread { displayPath("Detected marker") }
-            }
+            //if (ids.total() > 0)  {
+               // runOnUiThread { displayPath("Detected marker") }
+           // }
 
+            //Aruco marker found
             if (ids.total() > 0 && count % 5 == 0)  {
                 for (i in 0 until ids.total().toInt()) {
                     showToast("Detected marker with id: ${ids[i, 0][0]}")
+
                 }
             } else {
                 runOnUiThread { displayPath("No markers detected") }
@@ -489,7 +506,35 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             //Calculate frames/second and show toast
             curtime = System.currentTimeMillis()
             if (count % 10 == 0) {
-                showToast("Time (ms): ".plus(curtime.minus(prevtime)).toString().plus(", Height: ").plus(height).plus(", Width: ").plus(width))
+                //showToast("Time (ms): ".plus(curtime.minus(prevtime)).toString().plus(", Height: ").plus(height).plus(", Width: ").plus(width))
+                receiveResponseFromServer()
+                /*val cameraMatrix = Mat(3, 3, CvType.CV_64F)
+                val distCoeffs = MatOfDouble()
+                distCoeffs.put(0, 0, 0.0, 0.0, 0.0, 0.0, 0.0)
+                val markerSize = 0.1 // For example, if the marker size is 10 cm
+                val markerPixelCoords = Point(x, y)
+                // Define the half of the camera's field of view in the vertical direction
+                val fov = 40.0 // In degrees
+                val rvec = Mat()
+                val tvec = Mat()
+                val markerSizeMeters = 0.1 // assume the marker size is 10cm
+                val objPoints = MatOfPoint3f(
+                    Point3(0.0, 0.0, 0.0),
+                    Point3(0.0, markerSizeMeters, 0.0),
+                    Point3(markerSizeMeters, markerSizeMeters, 0.0),
+                    Point3(markerSizeMeters, 0.0, 0.0)
+                )
+
+
+                Calib3d.solvePnP(
+                    objPoints = objPoints,
+                    imgPoints = MatOfPoint2f(markerPixelCoords),
+                    cameraMatrix = cameraMatrix,
+                    distCoeffs = distCoeffs,
+                    rvec = rvec,
+                    tvec = tvec,
+                    useExtrinsicGuess = false
+                )*/
             }
             prevtime = System.currentTimeMillis()
 
@@ -800,4 +845,54 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                 return model === Model.MATRICE_300_RTK
             }
     }
+
+    private var socket: Socket? = null
+
+    private fun connectToServer() {
+        Thread {
+            val host = "184.155.86.105" // replace with your server IP address
+            val port = 23 // replace with your server port
+            //val terminalType = "VT100" // replace with your desired terminal type
+
+            // Connect to server
+            try {
+                socket = Socket(host, port)
+
+                // Send message to server
+                val outputStream = OutputStreamWriter(socket!!.getOutputStream())
+                outputStream.write("Hello, server!")
+                outputStream.flush()
+
+            } catch (e: Exception) {
+                // Handle connection error
+                showToast("Connection failed: ${e.message}")
+            }
+        }.start()
+    }
+
+    private fun receiveResponseFromServer() {
+        // Make sure the socket is initialized and connected before attempting to receive data
+        if (socket != null && socket!!.isConnected) {
+            try {
+                // Receive response from server
+                val inputStream = socket!!.getInputStream()
+                val buffer = ByteArray(1024)
+                val length = inputStream.read(buffer)
+
+                if (length != -1) {
+                    val response = buffer.copyOf(length).decodeToString()
+                    showToast("Received response from server: $response")
+                }
+            } catch (e: Exception) {
+                // Handle error
+                showToast("Error receiving response from server: ${e.message}")
+            }
+        } else {
+            showToast("Socket is not connected")
+        }
+    }
+
+
+
+
 }
