@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Kylen\\OneDrive\\Documents\\GitHub\\DJITutorialsKotlin\\9-VideoDecoder\\android-videostreamdecodingsample\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-3\\b2e0b7a9d202c5c6d0f18e6a45d67a3a\\transformed\\jetified-dji-sdk-4.16.1\\res\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,116",
+                        "endColumns": "60,59",
+                        "endOffsets": "111,171"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,15 @@
 package com.dji.videostreamdecodingsample
 
+//import io.socket.client.Socket
+
+
 import android.app.Activity
-import android.graphics.*
-import android.media.MediaCodecInfo
+import android.graphics.SurfaceTexture
 import android.media.MediaFormat
-import android.os.*
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -15,45 +20,44 @@ import android.widget.TextView
 import android.widget.Toast
 import com.dji.videostreamdecodingsample.media.DJIVideoStreamDecoder
 import com.dji.videostreamdecodingsample.media.NativeHelper
-import dji.common.airlink.PhysicalSource
 import dji.common.camera.SettingsDefinitions
 import dji.common.error.DJIError
+import dji.common.flightcontroller.virtualstick.*
 import dji.common.product.Model
-import dji.sdk.airlink.OcuSyncLink
 import dji.sdk.base.BaseProduct
 import dji.sdk.camera.Camera
 import dji.sdk.camera.VideoFeeder
 import dji.sdk.codec.DJICodecManager
+import dji.sdk.flightcontroller.FlightController
+import dji.sdk.products.Aircraft
 import dji.sdk.sdkmanager.DJISDKManager
-import dji.thirdparty.afinal.core.AsyncTask
+import dji.common.util.CommonCallbacks
 import org.opencv.core.CvType
 import org.opencv.core.Mat
-import org.opencv.core.Point
-import org.opencv.core.MatOfPoint2f
-import org.opencv.core.MatOfPoint3f
-import org.opencv.core.Point3
-import org.opencv.core.MatOfByte
-import org.opencv.core.MatOfDouble
-import org.opencv.imgcodecs.Imgcodecs
-import org.opencv.objdetect.ArucoDetector
-import org.opencv.objdetect.DetectorParameters
-import org.opencv.objdetect.Dictionary
-import org.opencv.calib3d.Calib3d
 import org.opencv.imgproc.Imgproc
-import org.opencv.objdetect.QRCodeDetector
-import java.io.*
-import java.nio.ByteBuffer
-import io.socket.client.IO
-//import io.socket.client.Socket
+import org.opencv.objdetect.ArucoDetector
+import java.io.OutputStreamWriter
+import java.net.InetSocketAddress
 import java.net.Socket
-import java.io.BufferedReader
-import org.apache.commons.net.telnet.TelnetClient
-import java.io.InputStreamReader
+import java.nio.ByteBuffer
+import org.opencv.core.MatOfByte
+import org.opencv.imgcodecs.Imgcodecs
+import java.io.ByteArrayOutputStream
+import java.io.DataOutputStream
+import java.io.BufferedOutputStream
+import android.graphics.Bitmap
+import org.opencv.android.Utils
+import android.widget.ImageView
+
+
+
+
+
 
 class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
 
-
+    private var flightController: FlightController? = null
     private var surfaceCallback: SurfaceHolder.Callback? = null
 
     private enum class DemoType {
@@ -87,24 +91,21 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var videoViewWidth = 0
     private var videoViewHeight = 0
     private var count = 0
-    private var countmax = 30
     private var prevtime = System.currentTimeMillis()
     private var curtime = System.currentTimeMillis()
-
     private var doneProcessing: Boolean = true
-    private val decoder = QRCodeDetector()
     private var points = Mat()
     private var rgbMat = Mat()
-
-
-
-    private var ids = Mat()
     private var yuvMat = Mat(1088 + 1088 / 2, 1632, CvType.CV_8UC1) //height = 1088, width = 1632
+    private var ids = Mat()
+    var product: BaseProduct? = null
+    private var takeoff: Boolean = false
+    private var pitch = 0f
+    private var roll = 0f
+    private var yaw = 0f
+    private var throttle = 0f
 
-    //private var socket: Socket? = null
-
-
-
+    private lateinit var myImageView: ImageView
 
 
     override fun onResume() {
@@ -154,23 +155,27 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         setContentView(R.layout.activity_main)
         initUi()
         connectToServer()
+        //myImageView = findViewById(R.id.my_image_view)
 
+        val aircraft: Aircraft? = DJISDKManager.getInstance().product as? Aircraft
+        if (aircraft != null) {
+            // Get the flight controller instance
+            //flightController: FlightController? = aircraft.flightController
+            flightController = aircraft.flightController
+            if (flightController != null) {
+                //showToast("Flight controller available!")
+                flightController!!.verticalControlMode = VerticalControlMode.VELOCITY
+                flightController!!.rollPitchControlMode = RollPitchControlMode.VELOCITY
+                //flightController!!.yawControlMode = YawControlMode.ANGULAR_VELOCITY
+                flightController!!.yawControlMode = YawControlMode.ANGLE
+                flightController!!.rollPitchCoordinateSystem = FlightCoordinateSystem.BODY
+                flightController!!.setVirtualStickModeEnabled(true, null)
 
-        if (MainActivity.isM300Product) {
-            val ocuSyncLink: OcuSyncLink? =
-                VideoDecodingApplication.productInstance?.airLink?.ocuSyncLink
-            // If your MutltipleLensCamera is set at right or top, you need to change the PhysicalSource to RIGHT_CAM or TOP_CAM.
-            if (ocuSyncLink != null) {
-                ocuSyncLink.assignSourceToPrimaryChannel(
-                    PhysicalSource.LEFT_CAM, PhysicalSource.FPV_CAM
-                ) { error: DJIError? ->
-                    if (error == null) {
-                        showToast("assignSourceToPrimaryChannel success.")
-                    } else {
-                        showToast("assignSourceToPrimaryChannel fail, reason: " + error.description)
-                    }
-                }
+            } else {
+                showToast("Flight controller not available")
             }
+        } else {
+            showToast("Aircraft not available")
         }
     }
 
@@ -197,32 +202,26 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         videostreamPreviewSf = findViewById<View>(R.id.livestream_preview_sf) as SurfaceView
         videostreamPreviewSf!!.isClickable = true
         videostreamPreviewSf!!.setOnClickListener {
-            if (countmax == 30) {
-                countmax = 1
-                showToast("Countmax set rate to 1")
-            } else if (countmax == 1){
-                countmax = 10
-                showToast("Countmax set rate to 10")
-        } else if (countmax == 10){
-            countmax = 20
-            showToast("Countmax set rate to 20")
-        }
-            else{
-                countmax = 30;
-                showToast("Countmax set rate to 30")
-            }
-            /*val rate: Float = VideoFeeder.getInstance().transcodingDataRate
-            showToast("current rate:" + rate + "Mbps")
-            if (rate < 10) {
-                VideoFeeder.getInstance().transcodingDataRate = 10.0f
-                showToast("set rate to 10Mbps")
-            } else {
-                VideoFeeder.getInstance().transcodingDataRate = 3.0f
-                showToast("set rate to 3Mbps")
-            }*/
+            //Do things on sreen click
+            takeoff()
         }
         updateUIVisibility()
     }
+    private fun takeoff() {
+        flightController?.startTakeoff(object : CommonCallbacks.CompletionCallback<DJIError> {
+            override fun onResult(djiError: DJIError?) {
+                if (djiError == null) {
+                    showToast("Aircraft has taken off!")
+                    takeoff=true
+                } else {
+                    showToast("Takeoff failed: $djiError")
+                }
+            }
+        })
+
+    }
+
+
 
     private fun updateUIVisibility() {
         when (demoType) {
@@ -455,9 +454,14 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
         if ( doneProcessing && yuvFrame != null) {
 
+            //Get latest parameters from the server
+            //yaw = receiveResponseFromServer() ?: 0.0f
+            yaw = 0.0f
+
             //Increase count of iterations and set doneProcessing to false so the code waits until processing is done to start another
             count++
             doneProcessing = false
+
 
             //Fill bytes with YUV data
             val bytes = ByteArray(dataSize)
@@ -466,24 +470,31 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             //Put the YUV data in an OpenCV mat
             yuvMat.put(0, 0, bytes)
 
-            //Convert the YUV data to RGB data
+            // Convert the YUV data to RGB data
             Imgproc.cvtColor(yuvMat, rgbMat, Imgproc.COLOR_YUV2RGB_I420)
 
-            /*
-            //Detect QR Code and show result
-            var data = decoder.detectAndDecode(rgbMat, points)
-            if (count % 10 == 0) {
-                if (points.empty()) {
-                    runOnUiThread { displayPath("No QR Code Found ") }
-                } else {
-                    runOnUiThread { displayPath(data) }
-                }
-            }*/
+            // Display the image using OpenCV's imshow function
+            Imgproc.cvtColor(rgbMat, rgbMat, Imgproc.COLOR_RGB2BGR)
+
+            val bitmap = Bitmap.createBitmap(rgbMat.cols(), rgbMat.rows(), Bitmap.Config.ARGB_8888)
+            Utils.matToBitmap(rgbMat, bitmap)
+
+            // Update the ImageView on the UI thread
+            runOnUiThread {
+                //myImageView.setImageBitmap(bitmap)
+            }
+
+
+            //sendFrameToServer(rgbMat)
+
+
+
+
 
             //Detect ArUco Marker
             //val dictionary = Dictionary()
             //val parameters = DetectorParameters()
-
+/*
             val corners  = mutableListOf<Mat>()
 
             val detector = ArucoDetector()
@@ -500,250 +511,55 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
                 }
             } else {
-                runOnUiThread { displayPath("No markers detected") }
+                //runOnUiThread { displayPath("No markers detected") }
             }
-
-            //Calculate frames/second and show toast
+*/
+            //Show toast of variables of interest
             curtime = System.currentTimeMillis()
-            if (count % 10 == 0) {
-                //showToast("Time (ms): ".plus(curtime.minus(prevtime)).toString().plus(", Height: ").plus(height).plus(", Width: ").plus(width))
-                receiveResponseFromServer()
-                /*val cameraMatrix = Mat(3, 3, CvType.CV_64F)
-                val distCoeffs = MatOfDouble()
-                distCoeffs.put(0, 0, 0.0, 0.0, 0.0, 0.0, 0.0)
-                val markerSize = 0.1 // For example, if the marker size is 10 cm
-                val markerPixelCoords = Point(x, y)
-                // Define the half of the camera's field of view in the vertical direction
-                val fov = 40.0 // In degrees
-                val rvec = Mat()
-                val tvec = Mat()
-                val markerSizeMeters = 0.1 // assume the marker size is 10cm
-                val objPoints = MatOfPoint3f(
-                    Point3(0.0, 0.0, 0.0),
-                    Point3(0.0, markerSizeMeters, 0.0),
-                    Point3(markerSizeMeters, markerSizeMeters, 0.0),
-                    Point3(markerSizeMeters, 0.0, 0.0)
-                )
+            if (count % 39 == 0) {
+                showToast("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count) )
+                //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
 
 
-                Calib3d.solvePnP(
-                    objPoints = objPoints,
-                    imgPoints = MatOfPoint2f(markerPixelCoords),
-                    cameraMatrix = cameraMatrix,
-                    distCoeffs = distCoeffs,
-                    rvec = rvec,
-                    tvec = tvec,
-                    useExtrinsicGuess = false
-                )*/
+            }
+            if (count % 100 == 0 && takeoff) {
+                flightController!!.sendVirtualStickFlightControlData(FlightControlData(roll, pitch, yaw, throttle), null)
             }
             prevtime = System.currentTimeMillis()
 
             //Detection is done. Ready to start another.
             doneProcessing = true
-
-/*
-            AsyncTask.execute(Runnable {
-                    // two samples here, it may have other color format.
-                    when (format.getInteger(MediaFormat.KEY_COLOR_FORMAT)) {
-                        MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar ->                             //NV12
-                            if (Build.VERSION.SDK_INT <= 23) {
-                                //oldSaveYuvDataToJPEG(bytes, width, height)
-
-                            } else {
-                                //newSaveYuvDataToJPEG(bytes, width, height)
-
-                            }
-                        MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar ->                             //YUV420P
-                            newSaveYuvDataToJPEG420P(bytes, width, height)
-                        else -> {}
-
-                    }
-                })*/
         }
     }
 
-    // For android API <= 23
-/*
-    private fun oldSaveYuvDataToJPEG(yuvFrame: ByteArray, width: Int, height: Int) {
-        showToast("oldSaveYuvDataToJPEG")
-        if (yuvFrame.size < width * height) {
-            //DJILog.d(TAG, "yuvFrame size is too small " + yuvFrame.length);
-            return
-        }
-        val y = ByteArray(width * height)
-        val u = ByteArray(width * height / 4)
-        val v = ByteArray(width * height / 4)
-        val nu = ByteArray(width * height / 4) //
-        val nv = ByteArray(width * height / 4)
-        System.arraycopy(yuvFrame, 0, y, 0, y.size)
-        for (i in u.indices) {
-            v[i] = yuvFrame[y.size + 2 * i]
-            u[i] = yuvFrame[y.size + 2 * i + 1]
-        }
-        val uvWidth = width / 2
-        val uvHeight = height / 2
-        for (j in 0 until uvWidth / 2) {
-            for (i in 0 until uvHeight / 2) {
-                val uSample1 = u[i * uvWidth + j]
-                val uSample2 = u[i * uvWidth + j + uvWidth / 2]
-                val vSample1 = v[(i + uvHeight / 2) * uvWidth + j]
-                val vSample2 = v[(i + uvHeight / 2) * uvWidth + j + uvWidth / 2]
-                nu[2 * (i * uvWidth + j)] = uSample1
-                nu[2 * (i * uvWidth + j) + 1] = uSample1
-                nu[2 * (i * uvWidth + j) + uvWidth] = uSample2
-                nu[2 * (i * uvWidth + j) + 1 + uvWidth] = uSample2
-                nv[2 * (i * uvWidth + j)] = vSample1
-                nv[2 * (i * uvWidth + j) + 1] = vSample1
-                nv[2 * (i * uvWidth + j) + uvWidth] = vSample2
-                nv[2 * (i * uvWidth + j) + 1 + uvWidth] = vSample2
-            }
-        }
-        //nv21test
-        val bytes = ByteArray(yuvFrame.size)
-        System.arraycopy(y, 0, bytes, 0, y.size)
-        for (i in u.indices) {
-            bytes[y.size + i * 2] = nv[i]
-            bytes[y.size + i * 2 + 1] = nu[i]
-        }
-        Log.d(
-            TAG,
-            ("onYuvDataReceived: frame index: "
-                    + DJIVideoStreamDecoder.instance?.frameIndex
-                    ) + ",array length: "
-                    + bytes.size
-        )
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            screenShot(
-                bytes,
-                applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot",
-                width,
-                height
-            )
-        } else {
-            screenShot(
-                bytes,
-                Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot",
-                width,
-                height
-            )
-        }
-    }
+    fun willgetbackthis() {
+        /*val cameraMatrix = Mat(3, 3, CvType.CV_64F)
+val distCoeffs = MatOfDouble()
+distCoeffs.put(0, 0, 0.0, 0.0, 0.0, 0.0, 0.0)
+val markerSize = 0.1 // For example, if the marker size is 10 cm
+val markerPixelCoords = Point(x, y)
+// Define the half of the camera's field of view in the vertical direction
+val fov = 40.0 // In degrees
+val rvec = Mat()
+val tvec = Mat()
+val markerSizeMeters = 0.1 // assume the marker size is 10cm
+val objPoints = MatOfPoint3f(
+    Point3(0.0, 0.0, 0.0),
+    Point3(0.0, markerSizeMeters, 0.0),
+    Point3(markerSizeMeters, markerSizeMeters, 0.0),
+    Point3(markerSizeMeters, 0.0, 0.0)
+)
 
 
-    private fun newSaveYuvDataToJPEG(yuvFrame: ByteArray, width: Int, height: Int) {
-        showToast("newSaveYuvDataToJPEG")
-        if (yuvFrame.size < width * height) {
-            //DJILog.d(TAG, "yuvFrame size is too small " + yuvFrame.length);
-            return
-        }
-        val length = width * height
-        val u = ByteArray(width * height / 4)
-        val v = ByteArray(width * height / 4)
-        for (i in u.indices) {
-            v[i] = yuvFrame[length + 2 * i]
-            u[i] = yuvFrame[length + 2 * i + 1]
-        }
-        for (i in u.indices) {
-            yuvFrame[length + 2 * i] = u[i]
-            yuvFrame[length + 2 * i + 1] = v[i]
-        }
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            screenShot(yuvFrame, applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot", width, height)
-        } else {
-            screenShot(yuvFrame, Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot", width, height)
-        }
-    }
-*/
-
-    private fun newSaveYuvDataToJPEG420P(yuvFrame: ByteArray, width: Int, height: Int) {
-        //showToast("newSaveYuvDataToJPEG420P")
-        if (yuvFrame.size < width * height) {
-            return
-        }
-        val length = width * height
-        val u = ByteArray(width * height / 4)
-        val v = ByteArray(width * height / 4)
-        for (i in u.indices) {
-            u[i] = yuvFrame[length + i]
-            v[i] = yuvFrame[length + u.size + i]
-        }
-        for (i in u.indices) {
-            yuvFrame[length + 2 * i] = v[i]
-            yuvFrame[length + 2 * i + 1] = u[i]
-        }
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            screenShot(yuvFrame, applicationContext.getExternalFilesDir("DJI")!!.path + "/DJI_ScreenShot", width, height)
-        } else {
-            screenShot(yuvFrame, Environment.getExternalStorageDirectory().toString() + "/DJI_ScreenShot", width, height)
-        }
-    }
-
-    /**
-     * Save the buffered data into a JPG image file
-     */
-
-
-    private fun screenShot(buf: ByteArray, shotDir: String, width: Int, height: Int) {
-        val dir = File(shotDir)
-        if (!dir.exists() || !dir.isDirectory) {
-            dir.mkdirs()
-        }
-
-        val yuvImage = YuvImage(buf, ImageFormat.NV21, width, height, null)
-
-        val outputFile: OutputStream
-        val path = dir.toString() + "/ScreenShot_" + System.currentTimeMillis() + ".jpg"
-        outputFile = try {
-            FileOutputStream(File(path))
-        } catch (e: FileNotFoundException) {
-            Log.e(
-                TAG,
-                "test screenShot: new bitmap output file error: $e"
-            )
-            return
-        }
-        yuvImage.compressToJpeg(
-            Rect(
-                0,
-                0,
-                width,
-                height
-            ), 100, outputFile
-        )
-        try {
-            outputFile.close()
-        } catch (e: IOException) {
-            Log.e(
-                TAG,
-                "test screenShot: compress yuv image error: $e"
-            )
-            e.printStackTrace()
-        }
-
-        //This section added by Kyle
-        val img = Imgcodecs.imread(path)
-
-
-        val data = decoder.detectAndDecode(img, points)
-
-        //If QR code is scanned, print out the contents.
-        if (points.empty()) {
-            runOnUiThread { displayPath("No QR Code Found ") }
-        }else{
-            runOnUiThread { displayPath(data) }
-        }
-
-        //runOnUiThread { displayPath(path) }
-
-        //Calculate frames/second and show
-        curtime = System.currentTimeMillis()
-       // time = curtime.minus(prevtime)
-        //if(count%10==0) {runOnUiThread { displayPath(time.toString()) }}
-        if(count++ % 5==0) {showToast(curtime.minus(prevtime).toString().plus(" ").plus(count.toString()).plus(" ").plus(countmax.toString())          )    }
-        prevtime = System.currentTimeMillis()
-
-        doneProcessing = true //ready to process the next image
-
+Calib3d.solvePnP(
+    objPoints = objPoints,
+    imgPoints = MatOfPoint2f(markerPixelCoords),
+    cameraMatrix = cameraMatrix,
+    distCoeffs = distCoeffs,
+    rvec = rvec,
+    tvec = tvec,
+    useExtrinsicGuess = false
+)*/
     }
 
     fun onClick(v: View) {
@@ -846,22 +662,33 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             }
     }
 
-    private var socket: Socket? = null
+    private var socket: Socket? = null // For connection to Server
 
     private fun connectToServer() {
         Thread {
-            val host = "184.155.86.105" // replace with your server IP address
-            val port = 23 // replace with your server port
-            //val terminalType = "VT100" // replace with your desired terminal type
+            val host = "24.116.144.235" // replace with your server IP address
+            val port = 9999 // replace with your server port
+            val timeout = 15000 // 15 seconds
 
-            // Connect to server
             try {
-                socket = Socket(host, port)
+
+                // Connect to server
+               // socket = Socket(host, port)
+
+                // Connect to server with timeout
+                val address = InetSocketAddress(host, port)
+                val tempSocket = Socket()
+                tempSocket.connect(address, timeout)
 
                 // Send message to server
-                val outputStream = OutputStreamWriter(socket!!.getOutputStream())
-                outputStream.write("Hello, server!")
-                outputStream.flush()
+
+                //val outputStream = OutputStreamWriter(tempSocket.getOutputStream())
+                //outputStream.write("Hello, server!")
+                //outputStream.flush()
+                showToast("Connected to Server: $host : $port")
+
+                // Assign the socket to the class property
+                socket = tempSocket
 
             } catch (e: Exception) {
                 // Handle connection error
@@ -869,8 +696,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             }
         }.start()
     }
-
-    private fun receiveResponseFromServer() {
+    private fun receiveResponseFromServer(): Float? { // "?" means the returned value may sometimes be "Null"
         // Make sure the socket is initialized and connected before attempting to receive data
         if (socket != null && socket!!.isConnected) {
             try {
@@ -881,8 +707,10 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
                 if (length != -1) {
                     val response = buffer.copyOf(length).decodeToString()
-                    showToast("Received response from server: $response")
+                    val yawStr = response.substringAfter(":").substringBefore(";").trim() // Extract the yaw angle string between ":" and ";"
+                    return yawStr.toFloat() // Convert the yaw angle string to a float
                 }
+
             } catch (e: Exception) {
                 // Handle error
                 showToast("Error receiving response from server: ${e.message}")
@@ -890,7 +718,66 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         } else {
             showToast("Socket is not connected")
         }
+        return null
     }
+
+    fun getFlightController(): FlightController? {
+        val aircraft = product as Aircraft?
+        val flightController = aircraft?.flightController
+
+        if (flightController == null) {
+            showToast("Flight controller not available")
+        } else {
+            showToast("Flight controller is available!")
+        }
+
+        return flightController
+    }
+
+    private fun sendFrameToServer(mat: Mat) {
+        if (socket != null && socket!!.isConnected) {
+            val outputStream = socket?.getOutputStream()
+            if (outputStream != null) {
+                val buffer = MatOfByte()
+                Imgcodecs.imencode(".jpg", mat, buffer)
+                val bytes = buffer.toArray()
+                val dataOutputStream = DataOutputStream(outputStream)
+                val payloadSize = mat.total() * mat.elemSize()
+
+                // Send the payload size first
+                try {
+                    dataOutputStream.writeLong(payloadSize)
+                    showToast("Payload size sent: $payloadSize")
+                } catch (e: Exception) {
+                    showToast("Failed to write payload size to DataOutputStream")
+                }
+
+                // Send the image data
+                try {
+                    dataOutputStream.write(bytes)
+                    dataOutputStream.flush()
+                    showToast("Image data sent successfully")
+                } catch (e: Exception) {
+                    showToast("Failed to write image data to DataOutputStream")
+                }
+            }
+        } else {
+            showToast("Socket is not connected")
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

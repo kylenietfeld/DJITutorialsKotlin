@@ -1,0 +1,1 @@
+C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\cmake\debug\obj\x86

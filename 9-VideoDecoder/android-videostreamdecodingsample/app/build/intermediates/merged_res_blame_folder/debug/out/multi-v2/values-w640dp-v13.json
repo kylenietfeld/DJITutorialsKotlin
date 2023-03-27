@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Kylen\\OneDrive\\Documents\\GitHub\\DJITutorialsKotlin\\9-VideoDecoder\\android-videostreamdecodingsample\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w640dp-v13\\values-w640dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-3\\b2e0b7a9d202c5c6d0f18e6a45d67a3a\\transformed\\jetified-dji-sdk-4.16.1\\res\\values-w640dp-v13\\values-w640dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,120,182,243,305",
+                        "endColumns": "64,61,60,61,57",
+                        "endOffsets": "115,177,238,300,358"
+                    }
+                }
+            ]
+        }
+    ]
+}

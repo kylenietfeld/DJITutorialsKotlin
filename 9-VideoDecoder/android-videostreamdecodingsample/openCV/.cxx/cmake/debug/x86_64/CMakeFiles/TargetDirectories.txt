@@ -1,0 +1,3 @@
+C:/Users/Kylen/OneDrive/Documents/GitHub/DJITutorialsKotlin/9-VideoDecoder/android-videostreamdecodingsample/openCV/.cxx/cmake/debug/x86_64/CMakeFiles/opencv_jni_shared.dir
+C:/Users/Kylen/OneDrive/Documents/GitHub/DJITutorialsKotlin/9-VideoDecoder/android-videostreamdecodingsample/openCV/.cxx/cmake/debug/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/Kylen/OneDrive/Documents/GitHub/DJITutorialsKotlin/9-VideoDecoder/android-videostreamdecodingsample/openCV/.cxx/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,192 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.dji.videostreamdecodingsample" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="30" />
+7-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.VIBRATE" />
+9-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:6:5-65
+9-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:6:22-63
+10    <uses-permission android:name="android.permission.INTERNET" />
+10-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:7:5-66
+10-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:7:22-64
+11    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+11-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:8:5-75
+11-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:8:22-73
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:9:5-67
+12-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:9:22-65
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:10:5-80
+13-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:10:22-78
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:11:5-78
+14-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:11:22-76
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:12:5-78
+15-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:12:22-76
+16    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+16-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:13:5-75
+16-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:13:22-73
+17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+17-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:14:5-71
+17-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:14:22-68
+18    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+18-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:15:5-16:47
+18-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:15:22-81
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+19-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:17:5-18:40
+19-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:17:22-78
+20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+20-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:19:5-79
+20-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:19:22-77
+21    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+21-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:20:5-77
+21-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:20:22-75
+22    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+22-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:21:5-74
+22-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:21:22-72
+23    <uses-permission android:name="android.permission.BLUETOOTH" />
+23-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:22:5-67
+23-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:22:22-65
+24    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+24-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:23:5-74
+24-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:23:22-71
+25
+26    <uses-feature android:name="android.hardware.camera" />
+26-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:25:5-59
+26-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:25:19-57
+27    <uses-feature android:name="android.hardware.camera.autofocus" />
+27-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:26:5-69
+27-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:26:19-67
+28    <uses-feature
+28-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:27:5-29:35
+29        android:name="android.hardware.usb.host"
+29-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:28:9-49
+30        android:required="false" />
+30-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:29:9-33
+31    <uses-feature
+31-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:30:5-32:34
+32        android:name="android.hardware.usb.accessory"
+32-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:31:9-54
+33        android:required="true" />
+33-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:32:9-32
+34
+35    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- video editor -->
+35-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:15:5-79
+35-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:15:22-76
+36    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+36-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:19:5-84
+36-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:19:22-81
+37
+38    <application
+38-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:34:5-65:19
+39        android:name="com.dji.videostreamdecodingsample.VideoDecodingApplication"
+39-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:35:9-49
+40        android:allowBackup="true"
+40-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:36:9-35
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+42        android:debuggable="true"
+43        android:label="@string/app_name_decoding_sample"
+43-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:37:9-57
+44        android:supportsRtl="true"
+44-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:38:9-35
+45        android:theme="@style/AppTheme" >
+45-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:39:9-40
+46        <uses-library
+46-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:41:9-88
+47            android:name="org.apache.http.legacy"
+47-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:41:23-60
+48            android:required="false" />
+48-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:41:61-85
+49
+50        <meta-data
+50-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:43:9-45:55
+51            android:name="com.dji.sdk.API_KEY"
+51-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:44:13-47
+52            android:value="b434ac9f2ec4ea174d0ec5f5" />
+52-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:45:13-53
+53
+54        <activity
+54-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:47:9-59:20
+55            android:name="com.dji.videostreamdecodingsample.ConnectionActivity"
+55-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:48:13-47
+56            android:launchMode="singleTop"
+56-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:49:13-43
+57            android:screenOrientation="portrait" >
+57-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:50:13-49
+58            <intent-filter>
+58-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:51:13-55:29
+59                <action android:name="android.intent.action.MAIN" />
+59-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:52:17-68
+59-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:52:25-66
+60
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:53:17-76
+61-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:53:27-74
+62
+63                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+63-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:54:17-92
+63-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:54:25-90
+64            </intent-filter>
+65
+66            <meta-data
+66-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:56:13-58:59
+67                android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+67-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:57:17-82
+68                android:resource="@xml/accessory_filter" />
+68-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:58:17-57
+69        </activity>
+70        <activity
+70-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:60:9-64:74
+71            android:name="com.dji.videostreamdecodingsample.MainActivity"
+71-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:61:13-41
+72            android:configChanges="orientation|screenSize"
+72-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:63:13-59
+73            android:screenOrientation="landscape"
+73-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:62:13-50
+74            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+74-->C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:64:13-71
+75
+76        <service
+76-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:38:9-40:43
+77            android:name="dji.sdk.sdkmanager.DJIGlobalService"
+77-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:39:13-63
+78            android:stopWithTask="true" />
+78-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:40:13-40
+79
+80        <receiver
+80-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:42:9-49:20
+81            android:name="dji.logic.receiver.DJIPilotStartupReceiver"
+81-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:43:13-70
+82            android:exported="true" >
+82-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:44:13-36
+83            <intent-filter>
+83-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:45:13-48:29
+84                <action android:name="dji.go3.STARTUP" />
+84-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:46:17-58
+84-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:46:25-55
+85                <action android:name="dji.go4.STARTUP" />
+85-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:47:17-58
+85-->[com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\b2e0b7a9d202c5c6d0f18e6a45d67a3a\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:47:25-55
+86            </intent-filter>
+87        </receiver>
+88
+89        <provider
+89-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+90            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+90-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+91            android:authorities="com.dji.videostreamdecodingsample.lifecycle-process"
+91-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+92            android:exported="false"
+92-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+93            android:multiprocess="true" />
+93-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+94    </application>
+95
+96</manifest>
