@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //classpath 'io.crossbar.autobahn:autobahn-java:21.7.1'
         //classpath 'gradle.plugin.org.ros2.tools.gradle:ament:0.7.0'
 
         // NOTE: Do not place your application dependencies here; they belong

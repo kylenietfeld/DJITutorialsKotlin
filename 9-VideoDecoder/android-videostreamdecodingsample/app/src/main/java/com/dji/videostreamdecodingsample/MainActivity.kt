@@ -3,6 +3,10 @@ package com.dji.videostreamdecodingsample
 //import io.socket.client.Socket
 
 
+//import java.io.BufferedOutputStream
+//import java.net.InetSocketAddress
+//import java.net.Socket
+
 import android.app.Activity
 import android.graphics.SurfaceTexture
 import android.media.MediaFormat
@@ -16,48 +20,38 @@ import android.view.SurfaceView
 import android.view.TextureView
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.dji.videostreamdecodingsample.media.DJIVideoStreamDecoder
 import com.dji.videostreamdecodingsample.media.NativeHelper
 import dji.common.camera.SettingsDefinitions
 import dji.common.error.DJIError
-import dji.common.flightcontroller.virtualstick.*
 import dji.common.product.Model
 import dji.sdk.base.BaseProduct
 import dji.sdk.camera.Camera
 import dji.sdk.camera.VideoFeeder
 import dji.sdk.codec.DJICodecManager
-import dji.sdk.flightcontroller.FlightController
-import dji.sdk.products.Aircraft
 import dji.sdk.sdkmanager.DJISDKManager
-import dji.common.util.CommonCallbacks
-import org.opencv.core.CvType
-import org.opencv.core.Mat
+import io.crossbar.autobahn.wamp.Client
+import io.crossbar.autobahn.wamp.Session
+import io.crossbar.autobahn.wamp.interfaces.IAuthenticator
+import io.crossbar.autobahn.wamp.types.ExitInfo
+import io.crossbar.autobahn.wamp.types.SessionDetails
+import org.opencv.calib3d.Calib3d
+import org.opencv.core.*
 import org.opencv.imgproc.Imgproc
 import org.opencv.objdetect.ArucoDetector
-import java.io.OutputStreamWriter
-import java.net.InetSocketAddress
-import java.net.Socket
+import org.opencv.objdetect.DetectorParameters
+import org.opencv.objdetect.Objdetect
 import java.nio.ByteBuffer
-import org.opencv.core.MatOfByte
-import org.opencv.imgcodecs.Imgcodecs
-import java.io.ByteArrayOutputStream
-import java.io.DataOutputStream
-import java.io.BufferedOutputStream
-import android.graphics.Bitmap
-import org.opencv.android.Utils
-import android.widget.ImageView
-
-
-
-
+import java.util.concurrent.CompletableFuture
 
 
 class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
 
-    private var flightController: FlightController? = null
+    //private var flightController: FlightController? = null
     private var surfaceCallback: SurfaceHolder.Callback? = null
 
     private enum class DemoType {
@@ -104,6 +98,16 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var roll = 0f
     private var yaw = 0f
     private var throttle = 0f
+    private var markerSizeInMeters = 0.1 // Example: Marker size is 10 cm (0.1 meters)
+    private var focalLengthInPixels = 1320.0 // Example: Focal length of the camera in pixels
+
+
+    val url = "ws://24.116.171.186:8080/ws"
+    val realm = "realm1"
+    private val topic = "com.myapp.images"
+
+
+
 
     private lateinit var myImageView: ImageView
 
@@ -154,13 +158,13 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUi()
-        connectToServer()
+        //connectToServer()
         //myImageView = findViewById(R.id.my_image_view)
-
+/*
         val aircraft: Aircraft? = DJISDKManager.getInstance().product as? Aircraft
         if (aircraft != null) {
             // Get the flight controller instance
-            //flightController: FlightController? = aircraft.flightController
+            flightController: FlightController? = aircraft.flightController
             flightController = aircraft.flightController
             if (flightController != null) {
                 //showToast("Flight controller available!")
@@ -176,10 +180,11 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             }
         } else {
             showToast("Aircraft not available")
-        }
+        }*/
+
+
+
     }
-
-
 
     private fun showToast(s: String) {
         mainHandler.sendMessage(
@@ -202,11 +207,18 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         videostreamPreviewSf = findViewById<View>(R.id.livestream_preview_sf) as SurfaceView
         videostreamPreviewSf!!.isClickable = true
         videostreamPreviewSf!!.setOnClickListener {
-            //Do things on sreen click
-            takeoff()
+            //Do things on screen click
+            //takeoff()
+            //focalLengthInPixels = focalLengthInPixels + 10.0
+            //showToast("focalLengthInPixels: ${focalLengthInPixels}")
+
         }
-        updateUIVisibility()
+
+
+            updateUIVisibility()
+
     }
+    /*
     private fun takeoff() {
         flightController?.startTakeoff(object : CommonCallbacks.CompletionCallback<DJIError> {
             override fun onResult(djiError: DJIError?) {
@@ -219,7 +231,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             }
         })
 
-    }
+    }*/
 
 
 
@@ -454,13 +466,15 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
         if ( doneProcessing && yuvFrame != null) {
 
+            //Increase count of iterations and set doneProcessing to false so the code waits until processing is done to start another
+            doneProcessing = false
+            count++
+
             //Get latest parameters from the server
             //yaw = receiveResponseFromServer() ?: 0.0f
-            yaw = 0.0f
+            //yaw = 0.0f
 
-            //Increase count of iterations and set doneProcessing to false so the code waits until processing is done to start another
-            count++
-            doneProcessing = false
+
 
 
             //Fill bytes with YUV data
@@ -473,94 +487,132 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             // Convert the YUV data to RGB data
             Imgproc.cvtColor(yuvMat, rgbMat, Imgproc.COLOR_YUV2RGB_I420)
 
-            // Display the image using OpenCV's imshow function
-            Imgproc.cvtColor(rgbMat, rgbMat, Imgproc.COLOR_RGB2BGR)
-
-            val bitmap = Bitmap.createBitmap(rgbMat.cols(), rgbMat.rows(), Bitmap.Config.ARGB_8888)
-            Utils.matToBitmap(rgbMat, bitmap)
-
-            // Update the ImageView on the UI thread
-            runOnUiThread {
-                //myImageView.setImageBitmap(bitmap)
-            }
-
 
             //sendFrameToServer(rgbMat)
 
 
+            /*
+            if (count == 100){
+                try{
+                var wampsession = Session()
+                } catch (e: Exception) {
+                    showToast("Connection failed: ${e.message}")
+                }
+                //wampsession.addOnJoinListener { session, details -> showToast("Connected to Wamp Server!!!!!!!!!!!") }
+                //var client = Client(wampsession, url, realm)
+                //client.connect()
+                }*/
 
-
-
-            //Detect ArUco Marker
-            //val dictionary = Dictionary()
-            //val parameters = DetectorParameters()
-/*
-            val corners  = mutableListOf<Mat>()
-
-            val detector = ArucoDetector()
-            detector.detectMarkers(rgbMat, corners , ids)
-
-            //if (ids.total() > 0)  {
-               // runOnUiThread { displayPath("Detected marker") }
+            //Show toast of variables of interest
+            //curtime = System.currentTimeMillis()
+           // if (count % 39 == 0) {
+               // showToast("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count) )
+                //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
+           // }
+            //prevtime = System.currentTimeMillis()
+           // if (count % 100 == 0 && takeoff) {
+             //   flightController!!.sendVirtualStickFlightControlData(FlightControlData(roll, pitch, yaw, throttle), null)
            // }
 
-            //Aruco marker found
-            if (ids.total() > 0 && count % 5 == 0)  {
-                for (i in 0 until ids.total().toInt()) {
-                    showToast("Detected marker with id: ${ids[i, 0][0]}")
 
+
+            val corners: List<Mat> = ArrayList()
+            val ids = Mat()
+            val dictionary = Objdetect.getPredefinedDictionary(0) // 0 = 4x4 markers
+            val parameters = DetectorParameters() //Can alter thresholding value, expected marker size in pixels
+            val arucoDetector = ArucoDetector(dictionary, parameters)
+
+            //Detect Aruco Markers in the image
+            arucoDetector.detectMarkers(rgbMat, corners, ids)
+
+            val rvec = Mat()
+            val tvec = Mat()
+            val distCoeffs = MatOfDouble()
+
+            if (ids.total() > 0)  {
+
+                val detectedcorners = corners[0]
+
+                val cameraMatrix = Mat(3, 3, CvType.CV_64F)
+                cameraMatrix.put(0, 0, focalLengthInPixels)
+                cameraMatrix.put(1, 1, focalLengthInPixels)
+                cameraMatrix.put(0, 2, rgbMat.cols() / 2.0)
+                cameraMatrix.put(1, 2, rgbMat.rows() / 2.0)
+
+                val objectPointsArr = arrayOfNulls<Point3>(4)
+                objectPointsArr[0] = Point3(0.0, 0.0, 0.0)
+                objectPointsArr[1] = Point3(markerSizeInMeters, 0.0, 0.0)
+                objectPointsArr[2] = Point3(markerSizeInMeters, markerSizeInMeters, 0.0)
+                objectPointsArr[3] = Point3(0.0, markerSizeInMeters, 0.0)
+                val objectPoints = MatOfPoint3f(*objectPointsArr)
+
+                val imagePointsArr = arrayOfNulls<Point>(4)
+                for (i in 0..3) {
+                    val value: DoubleArray = detectedcorners.get(0, i)
+                    imagePointsArr[i] = Point(value[0], value[1])
                 }
-            } else {
-                //runOnUiThread { displayPath("No markers detected") }
-            }
-*/
-            //Show toast of variables of interest
-            curtime = System.currentTimeMillis()
-            if (count % 39 == 0) {
-                showToast("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count) )
-                //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
+                val imagePoints = MatOfPoint2f()
+                imagePoints.fromArray(*imagePointsArr)
 
 
+
+                // SolvePnP to calculate the rotation and translation vectors
+                try {
+                    Calib3d.solvePnP(
+                        objectPoints,
+                        imagePoints,
+                        cameraMatrix,
+                        distCoeffs,
+                        rvec,
+                        tvec
+                    )
+                } catch (e: Exception) {
+                // Handle error
+                showToast("Exception: ${e.message}")
             }
-            if (count % 100 == 0 && takeoff) {
-                flightController!!.sendVirtualStickFlightControlData(FlightControlData(roll, pitch, yaw, throttle), null)
+
+                curtime = System.currentTimeMillis()
+                if (count % 20 == 0) {
+                    runOnUiThread { displayPath("Detected marker") }
+
+                    try {
+                        if (rvec != null && tvec != null) {
+                            val r1Value = rvec.get(0, 0)[0] * 180 / Math.PI
+                            val r2Value = rvec.get(1, 0)[0] * 180 / Math.PI
+                            val r3Value = rvec.get(2, 0)[0] * 180 / Math.PI
+
+                            val message1 = "R:${"%.2f".format(r1Value)} , ${"%.2f".format(r2Value)} , ${"%.2f".format(r3Value)}"
+                            runOnUiThread { displayPath(message1) }
+
+                            val t1Value = tvec.get(0, 0)[0] * 39.3701
+                            val t2Value = tvec.get(1, 0)[0] * 39.3701
+                            val t3Value = tvec.get(2, 0)[0] * 39.3701
+
+                            val message2 = "T:${"%.2f".format(t1Value)} , ${"%.2f".format(t2Value)} , ${"%.2f".format(t3Value)}"
+                            runOnUiThread { displayPath(message2) }
+
+                            runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime))) }
+                        } else {
+                            showToast("rvec or tvec is null.")
+                        }
+                    } catch (e: Exception) {
+                        // Handle error
+                        showToast("Exception: ${e.message}")
+                    }
+                }
+                prevtime = System.currentTimeMillis()
+
+
+             }else{
+                runOnUiThread { displayPath("No aruco marker") }
             }
-            prevtime = System.currentTimeMillis()
 
             //Detection is done. Ready to start another.
             doneProcessing = true
+
         }
     }
 
-    fun willgetbackthis() {
-        /*val cameraMatrix = Mat(3, 3, CvType.CV_64F)
-val distCoeffs = MatOfDouble()
-distCoeffs.put(0, 0, 0.0, 0.0, 0.0, 0.0, 0.0)
-val markerSize = 0.1 // For example, if the marker size is 10 cm
-val markerPixelCoords = Point(x, y)
-// Define the half of the camera's field of view in the vertical direction
-val fov = 40.0 // In degrees
-val rvec = Mat()
-val tvec = Mat()
-val markerSizeMeters = 0.1 // assume the marker size is 10cm
-val objPoints = MatOfPoint3f(
-    Point3(0.0, 0.0, 0.0),
-    Point3(0.0, markerSizeMeters, 0.0),
-    Point3(markerSizeMeters, markerSizeMeters, 0.0),
-    Point3(markerSizeMeters, 0.0, 0.0)
-)
-
-
-Calib3d.solvePnP(
-    objPoints = objPoints,
-    imgPoints = MatOfPoint2f(markerPixelCoords),
-    cameraMatrix = cameraMatrix,
-    distCoeffs = distCoeffs,
-    rvec = rvec,
-    tvec = tvec,
-    useExtrinsicGuess = false
-)*/
-    }
 
     fun onClick(v: View) {
         if (v.id == R.id.activity_main_screen_shot) {
@@ -661,12 +713,12 @@ Calib3d.solvePnP(
                 return model === Model.MATRICE_300_RTK
             }
     }
-
+/*
     private var socket: Socket? = null // For connection to Server
 
     private fun connectToServer() {
         Thread {
-            val host = "24.116.144.235" // replace with your server IP address
+            val host = "184.155.92.251" // replace with your server IP address
             val port = 9999 // replace with your server port
             val timeout = 15000 // 15 seconds
 
@@ -739,35 +791,36 @@ Calib3d.solvePnP(
             val outputStream = socket?.getOutputStream()
             if (outputStream != null) {
                 val buffer = MatOfByte()
-                Imgcodecs.imencode(".jpg", mat, buffer)
+                val compressionParams = MatOfInt(Imgcodecs.IMWRITE_JPEG_QUALITY, 50)
+                Imgcodecs.imencode(".jpg", mat, buffer, compressionParams)
                 val bytes = buffer.toArray()
-                val dataOutputStream = DataOutputStream(outputStream)
-                val payloadSize = mat.total() * mat.elemSize()
+                showToast("Number of bytes in the image: ${bytes.size}")
 
-                // Send the payload size first
-                try {
-                    dataOutputStream.writeLong(payloadSize)
-                    showToast("Payload size sent: $payloadSize")
-                } catch (e: Exception) {
-                    showToast("Failed to write payload size to DataOutputStream")
+                // Send the size of the image data first
+                val sizeBytes = ByteBuffer.allocate(8).putLong(bytes.size.toLong()).array()
+                outputStream.write(sizeBytes)
+
+                // Send the JPEG image over the network using a BufferedOutputStream
+                val bos = BufferedOutputStream(outputStream)
+                bos.write(bytes)
+                bos.flush()
+
+                // Receive acknowledgement from the server
+                val ack = ByteArray(3)
+                val inputStream = socket?.getInputStream()
+                inputStream?.read(ack)
+                if (ack.contentEquals("ACK".toByteArray())) {
+                    showToast("Image received successfully")
+                } else {
+                    showToast("Failed to receive image")
                 }
 
-                // Send the image data
-                try {
-                    dataOutputStream.write(bytes)
-                    dataOutputStream.flush()
-                    showToast("Image data sent successfully")
-                } catch (e: Exception) {
-                    showToast("Failed to write image data to DataOutputStream")
-                }
             }
         } else {
             showToast("Socket is not connected")
         }
     }
-
-
-
+*/
 
 
 

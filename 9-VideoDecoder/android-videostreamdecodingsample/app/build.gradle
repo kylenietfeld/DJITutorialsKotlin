@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.dji.videostreamdecodingsample"
-        minSdkVersion 21
+        minSdkVersion 28 //used to be 21
         targetSdkVersion 30
         multiDexEnabled true
         ndk {
@@ -74,6 +74,10 @@ android {
         exclude 'META-INF/rxjava.properties'
         exclude 'assets/location_map_gps_locked.png'
         exclude 'assets/location_map_gps_3d.png'
+
+        //added for wamp
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
     }
 
     compileOptions {
@@ -132,6 +136,11 @@ dependencies {
 
     //org.apache.commons.net.telnet.TelnetClient
     implementation group: 'commons-net', name: 'commons-net', version: '3.8.0'
+
+    //autobahnJava
+    //implementation 'io.crossbar.autobahn:autobahn-android:21.7.1'
+    implementation 'io.crossbar.autobahn:autobahn-java:21.7.1'
+
 
 
 }
