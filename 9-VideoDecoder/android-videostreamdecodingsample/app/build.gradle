@@ -132,15 +132,16 @@ dependencies {
 
 
     //Socket.io
-    implementation 'io.socket:socket.io-client:1.0.0'
+    //implementation 'io.socket:socket.io-client:1.0.0'
 
     //org.apache.commons.net.telnet.TelnetClient
-    implementation group: 'commons-net', name: 'commons-net', version: '3.8.0'
+    //implementation group: 'commons-net', name: 'commons-net', version: '3.8.0'
 
     //autobahnJava
-    //implementation 'io.crossbar.autobahn:autobahn-android:21.7.1'
-    implementation 'io.crossbar.autobahn:autobahn-java:21.7.1'
+    implementation 'io.crossbar.autobahn:autobahn-android:21.7.1'
+    //implementation 'io.crossbar.autobahn:autobahn-java:21.7.1'
 
-
+    //KWamp
+    //implementation("com.github.LaurenceGA.kwamp:kwamp-router-core:1.0.5")
 
 }

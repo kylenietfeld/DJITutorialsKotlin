@@ -102,10 +102,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var focalLengthInPixels = 1320.0 // Example: Focal length of the camera in pixels
 
 
-    val url = "ws://24.116.171.186:8080/ws"
-    val realm = "realm1"
+    private val url = "ws://24.116.171.128:8080/ws"
+    private val realm = "realm1"
     private val topic = "com.myapp.images"
-
 
 
 
@@ -491,17 +490,17 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             //sendFrameToServer(rgbMat)
 
 
-            /*
+
             if (count == 100){
                 try{
-                var wampsession = Session()
+                    val wampsession = Session()
                 } catch (e: Exception) {
                     showToast("Connection failed: ${e.message}")
                 }
                 //wampsession.addOnJoinListener { session, details -> showToast("Connected to Wamp Server!!!!!!!!!!!") }
                 //var client = Client(wampsession, url, realm)
                 //client.connect()
-                }*/
+                }
 
             //Show toast of variables of interest
             //curtime = System.currentTimeMillis()
