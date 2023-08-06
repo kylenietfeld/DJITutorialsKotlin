@@ -5,7 +5,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter() //added for autobahn
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
@@ -22,8 +21,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() //added for autobahn
-        maven { url "https://dl.bintray.com/ethereum/maven/" } //added for autobahn
+
 
     }
 }
