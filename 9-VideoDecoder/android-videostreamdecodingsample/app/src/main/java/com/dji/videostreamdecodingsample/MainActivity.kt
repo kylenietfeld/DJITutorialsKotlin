@@ -170,6 +170,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUi()
+
         //connectToServer()
         //myImageView = findViewById(R.id.my_image_view)
 
@@ -519,9 +520,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                 //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
            // }
             //prevtime = System.currentTimeMillis()
-            if (count == 100) {
-                connect("ws://184.155.86.32:8080/ws", "realm1");
-            }
+           // if (count == 100) {
+             //   connect2("ws://184.155.86.32:8080/ws", "realm1");
+            //}
 
 
             val corners: List<Mat> = ArrayList()
@@ -854,8 +855,6 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         val client = Client(wampSession, websocketURL, realm)
         return client.connect()
     }
-
-
 
 
 

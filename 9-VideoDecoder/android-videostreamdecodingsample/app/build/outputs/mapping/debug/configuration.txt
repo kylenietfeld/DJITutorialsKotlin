@@ -338,6 +338,32 @@
 
 
 # End of content from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
+# The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\4e17502576023d6501a6d2b3736a5eaf\transformed\rules\lib\META-INF\com.android.tools\r8-from-1.6.0\coroutines.pro
+# Allow R8 to optimize away the FastServiceLoader.
+# Together with ServiceLoader optimization in R8
+# this results in direct instantiation when loading Dispatchers.Main
+-assumenosideeffects class kotlinx.coroutines.internal.MainDispatcherLoader {
+    boolean FAST_SERVICE_LOADER_ENABLED return false;
+}
+
+-assumenosideeffects class kotlinx.coroutines.internal.FastServiceLoaderKt {
+    boolean ANDROID_DETECTED return true;
+}
+
+-keep class kotlinx.coroutines.android.AndroidDispatcherFactory {*;}
+
+# Disable support for "Missing Main Dispatcher", since we always have Android main dispatcher
+-assumenosideeffects class kotlinx.coroutines.internal.MainDispatchersKt {
+    boolean SUPPORT_MISSING return false;
+}
+
+# Statically turn off all debugging facilities and assertions
+-assumenosideeffects class kotlinx.coroutines.DebugKt {
+    boolean getASSERTIONS_ENABLED() return false;
+    boolean getDEBUG() return false;
+    boolean getRECOVER_STACK_TRACES() return false;
+}
+# End of content from C:\Users\Kylen\.gradle\caches\transforms-3\4e17502576023d6501a6d2b3736a5eaf\transformed\rules\lib\META-INF\com.android.tools\r8-from-1.6.0\coroutines.pro
 # The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\2869dc837e959ba7c83ca07432ced816\transformed\jetified-awesome-validation-4.2\proguard.txt
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
@@ -422,32 +448,6 @@
 
 
 # End of content from C:\Users\Kylen\.gradle\caches\transforms-3\0c54a8c1c7d8113e93a15bc92d69f629\transformed\material-1.3.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\4e17502576023d6501a6d2b3736a5eaf\transformed\rules\lib\META-INF\com.android.tools\r8-from-1.6.0\coroutines.pro
-# Allow R8 to optimize away the FastServiceLoader.
-# Together with ServiceLoader optimization in R8
-# this results in direct instantiation when loading Dispatchers.Main
--assumenosideeffects class kotlinx.coroutines.internal.MainDispatcherLoader {
-    boolean FAST_SERVICE_LOADER_ENABLED return false;
-}
-
--assumenosideeffects class kotlinx.coroutines.internal.FastServiceLoaderKt {
-    boolean ANDROID_DETECTED return true;
-}
-
--keep class kotlinx.coroutines.android.AndroidDispatcherFactory {*;}
-
-# Disable support for "Missing Main Dispatcher", since we always have Android main dispatcher
--assumenosideeffects class kotlinx.coroutines.internal.MainDispatchersKt {
-    boolean SUPPORT_MISSING return false;
-}
-
-# Statically turn off all debugging facilities and assertions
--assumenosideeffects class kotlinx.coroutines.DebugKt {
-    boolean getASSERTIONS_ENABLED() return false;
-    boolean getDEBUG() return false;
-    boolean getRECOVER_STACK_TRACES() return false;
-}
-# End of content from C:\Users\Kylen\.gradle\caches\transforms-3\4e17502576023d6501a6d2b3736a5eaf\transformed\rules\lib\META-INF\com.android.tools\r8-from-1.6.0\coroutines.pro
 # The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\5bfa8decd4774daf54c13d8b075c8f34\transformed\appcompat-1.2.0\proguard.txt
 # Copyright (C) 2018 The Android Open Source Project
 #
@@ -640,13 +640,6 @@
 }
 
 # End of content from C:\Users\Kylen\.gradle\caches\transforms-3\d288601761e95bd24f1822ea45351565\transformed\jetified-savedstate-1.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\proguard.txt
--keep class * implements androidx.versionedparcelable.VersionedParcelable
--keep public class android.support.**Parcelizer { *; }
--keep public class androidx.**Parcelizer { *; }
--keep public class androidx.versionedparcelable.ParcelImpl
-
-# End of content from C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\proguard.txt
 # The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\d747cdf46d9c5f3b131f52452e85243e\transformed\lifecycle-viewmodel-2.3.1\proguard.txt
 -keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
     <init>();
@@ -657,6 +650,13 @@
 }
 
 # End of content from C:\Users\Kylen\.gradle\caches\transforms-3\d747cdf46d9c5f3b131f52452e85243e\transformed\lifecycle-viewmodel-2.3.1\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\proguard.txt
+-keep class * implements androidx.versionedparcelable.VersionedParcelable
+-keep public class android.support.**Parcelizer { *; }
+-keep public class androidx.**Parcelizer { *; }
+-keep public class androidx.versionedparcelable.ParcelImpl
+
+# End of content from C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\proguard.txt
 # The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\5fb29c71945fb43b1bc428e38e2621d5\transformed\rules\lib\META-INF\proguard\androidx-annotations.pro
 -keep,allowobfuscation @interface androidx.annotation.Keep
 -keep @androidx.annotation.Keep class * {*;}
@@ -678,32 +678,6 @@
 }
 
 # End of content from C:\Users\Kylen\.gradle\caches\transforms-3\5fb29c71945fb43b1bc428e38e2621d5\transformed\rules\lib\META-INF\proguard\androidx-annotations.pro
-# The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\proguard.txt
-# Copyright (C) 2020 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# Ignore missing Kotlin meta-annotations so that this library can be used
-# without adding a compileOnly dependency on the Kotlin standard library.
--dontwarn kotlin.Deprecated
--dontwarn kotlin.Metadata
--dontwarn kotlin.ReplaceWith
--dontwarn kotlin.annotation.AnnotationRetention
--dontwarn kotlin.annotation.AnnotationTarget
--dontwarn kotlin.annotation.Retention
--dontwarn kotlin.annotation.Target
-
-# End of content from C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\0402ffe739bb15ac133fbf0b8fbcccc8\transformed\rules\lib\META-INF\proguard\okhttp3.pro
 # JSR 305 annotations are for embedding nullability information.
 -dontwarn javax.annotation.**
@@ -746,6 +720,32 @@
 -dontwarn sun.misc.Signal
 
 # End of content from C:\Users\Kylen\.gradle\caches\transforms-3\030031d3ff7653b662e484c6dae99109\transformed\rules\lib\META-INF\proguard\coroutines.pro
+# The proguard configuration file for the following section is C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\proguard.txt
+# Copyright (C) 2020 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Ignore missing Kotlin meta-annotations so that this library can be used
+# without adding a compileOnly dependency on the Kotlin standard library.
+-dontwarn kotlin.Deprecated
+-dontwarn kotlin.Metadata
+-dontwarn kotlin.ReplaceWith
+-dontwarn kotlin.annotation.AnnotationRetention
+-dontwarn kotlin.annotation.AnnotationTarget
+-dontwarn kotlin.annotation.Retention
+-dontwarn kotlin.annotation.Target
+
+# End of content from C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\proguard.txt
 # The proguard configuration file for the following section is <unknown>
 -ignorewarnings
 # End of content from <unknown>

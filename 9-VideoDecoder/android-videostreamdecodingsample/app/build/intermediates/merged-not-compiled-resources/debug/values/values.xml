@@ -1423,7 +1423,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_announcement">Announcement</string>
-    <string name="app_name">Autobahn Android</string>
+    <string name="app_name">DJI-Mapkit-Mapbox</string>
     <string name="app_name_decoding_sample">Video Stream Decoding Sample</string>
     <string name="app_name_flySafeDataBase">FlySafeDataBase</string>
     <string name="app_name_fly_forbid">DJI GO</string>
