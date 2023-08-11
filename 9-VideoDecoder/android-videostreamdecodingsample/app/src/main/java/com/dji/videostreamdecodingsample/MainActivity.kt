@@ -27,8 +27,8 @@ import com.dji.videostreamdecodingsample.media.DJIVideoStreamDecoder
 import com.dji.videostreamdecodingsample.media.NativeHelper
 import dji.common.camera.SettingsDefinitions
 import dji.common.error.DJIError
-import dji.common.flightcontroller.virtualstick.*
 import dji.common.flightcontroller.FlightControllerState
+import dji.common.flightcontroller.virtualstick.*
 import dji.common.gimbal.Rotation
 import dji.common.gimbal.RotationMode
 import dji.common.product.Model
@@ -40,6 +40,10 @@ import dji.sdk.codec.DJICodecManager
 import dji.sdk.flightcontroller.FlightController
 import dji.sdk.products.Aircraft
 import dji.sdk.sdkmanager.DJISDKManager
+import io.crossbar.autobahn.wamp.Client
+import io.crossbar.autobahn.wamp.Session
+import io.crossbar.autobahn.wamp.types.ExitInfo
+import io.crossbar.autobahn.wamp.types.SessionDetails
 import org.opencv.calib3d.Calib3d
 import org.opencv.core.*
 import org.opencv.imgproc.Imgproc
@@ -47,6 +51,7 @@ import org.opencv.objdetect.ArucoDetector
 import org.opencv.objdetect.DetectorParameters
 import org.opencv.objdetect.Objdetect
 import java.nio.ByteBuffer
+import java.util.concurrent.CompletableFuture
 
 
 class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
@@ -514,8 +519,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                 //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
            // }
             //prevtime = System.currentTimeMillis()
-
-
+            if (count == 100) {
+                connect("ws://184.155.86.32:8080/ws", "realm1");
+            }
 
 
             val corners: List<Mat> = ArrayList()
@@ -840,6 +846,14 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         }
     }
 */
+
+    private fun connect(websocketURL: String, realm: String): CompletableFuture<ExitInfo> {
+
+        val wampSession = Session()
+        wampSession.addOnJoinListener { session, details -> showToast("Joined session.") }
+        val client = Client(wampSession, websocketURL, realm)
+        return client.connect()
+    }
 
 
 
