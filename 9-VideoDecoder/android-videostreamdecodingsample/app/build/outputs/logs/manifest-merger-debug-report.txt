@@ -2,65 +2,76 @@
 manifest
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
-MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\d245ace829becf0200a41e18185b52df\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:2:1-52:12
-MERGED from [:openCV] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.activity:activity-ktx:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\93eb45b49ce2a43a40b67265ba88bfc4\transformed\jetified-activity-ktx-1.3.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\86fb66e08787e44db6c0d97e3e3579f5\transformed\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\919eb377122433a197b294453bb8816c\transformed\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [com.basgeekball:awesome-validation:4.2] C:\Users\Kylen\.gradle\caches\transforms-3\2869dc837e959ba7c83ca07432ced816\transformed\jetified-awesome-validation-4.2\AndroidManifest.xml:2:1-11:12
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\0c54a8c1c7d8113e93a15bc92d69f629\transformed\material-1.3.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Kylen\.gradle\caches\transforms-3\b54eeb1b4924eaeeeb969daa71f05524\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\5bfa8decd4774daf54c13d8b075c8f34\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\3012ef3b1c7eeb6b98af7b1bb6e010c8\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\c3c084531a23e67c7cc7799589a6b069\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\42722757c0cb497f1269d16db961a660\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b772a1af7ba604c90ff9022258f8f3c4\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.fragment:fragment:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\28d6cd0998b9337eb18d8c53552dfecd\transformed\fragment-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\606483b3e71b334f17361f5fcc49316b\transformed\jetified-activity-1.3.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\1fca44373f5a1419786991e0b13df4d1\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\cc6bbe32783ef96e82e9eff2604692ee\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\ca3c8d8b2c73b5b66458d2784b5f8f96\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\208fed23ff6197b085a9d43ada480a9f\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\81fcb0738c4524a53c7fad4b7e9f25c7\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\4e52dcd2f34afbae8742d7aec94d1bd8\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\3acd01ac8a52633fadebd3d4b51d9696\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\06f238bcb56e5aaa87be2a3841b8357b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\8454d4359bfe43fd27aab613a03ff5e6\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\61a68699c5b02d12bde6ad3aaf6b29cc\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\07aed25f1ff464d834df0e2edbae5a97\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\f42b81483c1d9cfdb1edd40f0f0a79b5\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\dc13a11acf496dd6ebc02f33a4e5da7d\transformed\lifecycle-livedata-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:17:1-32:12
-MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b583ea773e24536d185394209982bfa5\transformed\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\32848ed94f760db99af3cdd90bde616e\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\0f9fa43b4f691bfba104ba14016380b0\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\983fe755960cd78868c1db73e89a511c\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\bc0df80e2d74d4b3116a37fb05aa1691\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\a64d0e41059408b52299e6d676aeb9da\transformed\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\d288601761e95bd24f1822ea45351565\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\13520e0ba4fc89d34e63166e0f2814f1\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\d747cdf46d9c5f3b131f52452e85243e\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\547151eab1007e54fc80b9b57fc3c917\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\83a88c5d2394e5322c8f2ba6a544996a\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\b0d6009c370d2226d9c1407eab060243\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\9be16f9e08392f64d30de74313720d43\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\e0409412d96e040c011ee7771809b59f\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [:autobahn] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\autobahn\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [com.dji:utmiss:1.2.1] C:\Users\Kylen\.gradle\caches\transforms-3\b4c7320fc66b15259bef8a7f99c7b4b4\transformed\jetified-utmiss-1.2.1\AndroidManifest.xml:2:1-11:12
-MERGED from [com.dji:library-networkrtk-helper:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\98fcb8020b85f8b6c20b13fdc7e8287d\transformed\jetified-library-networkrtk-helper-2.0.2\AndroidManifest.xml:2:1-11:12
-MERGED from [com.dji:fly-safe-database:1.0.19] C:\Users\Kylen\.gradle\caches\transforms-3\ce2f2308991b416e86224b2ad0c9993d\transformed\jetified-fly-safe-database-1.0.19\AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\d8209e0c02c8adfe7b2ca8e23d29b3ae\transformed\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:2:1-14:12
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8711d713e45333f19f1f42b87a430afd\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:2:1-52:12
+MERGED from [:openCV] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:autobahn] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\autobahn\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.activity:activity-ktx:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\90a62a951523eb1b9854edd101b0a43d\jetified-activity-ktx-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\401c2124d32a58154aef3171c6bf10f4\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\ae1dd4390e36c2e18bed0f6ae6a86c13\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.3.0-alpha02] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\473eace78f1ee71080e2d7a244c5202b\material-1.3.0-alpha02\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c123a097e9c3863e882550694fd0eaa4\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\39382bae5113f155e1aee98ba8c5dcd4\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\9fffbed6ffa962a88eb0cb8e256f5274\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\5f6fa85a79b5acd9c254e9811548485d\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\321b202495b15d0fd9b2d04148f96a78\lifecycle-extensions-2.2.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.core:core-ktx:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\2dfc4224a081c7fc12fd6c84b62e69a3\jetified-core-ktx-1.3.1\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.fragment:fragment:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\69cb9218d05cb22c7466f4130ef9aa53\fragment-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4003acccfc18532ab8ffdd2afbb6ec82\jetified-activity-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\28baab75c8160a126be95115f7119116\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\896b190e53425a7a1cc3ee23bf4e3fcd\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c5dcc160a9303a073fdbcf2f4e4e9f9f\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8448208a2b2d469e20bc603d7bb83650\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\81b274069356f96ab7d5c2e2e13bf1b2\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\b4ab0db884e1aff98e46ee040d9db027\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\38d5aa269ef35a5afa128c262568d95b\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\5412288b645301744ceb4b7087f1246c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\03786c33e74738ea953c6a353b51b74c\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\32f13a4cb51985a60c2ecb8d58c725bb\lifecycle-livedata-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:17:1-32:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\dc9b67b083406a5dc4b47ee7aca16b0f\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\1a29ca9e34f697cbee15271747188464\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\b96a711dd56674da767d1b6cdbb6c8c5\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\991313db93e69b538be15d3eb932ace4\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8ad90eeb34a89bd33439819caa156ed3\core-1.3.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c3a5192b31c6758d7e44d010df959b9a\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\d554d9cb29331fb7458058a5ee9060d2\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\785d247ba436b78d25e740186a3e5249\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08adc60a8bc7982b458fbc13afe9d3e9\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\134634073a0361174d79bf4d873b803e\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\1d9e5521c83bbb9b350c25c72c612123\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\afce9cae55a453ca00dc3cd43e2be184\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4254785dd48cab153d68c0a290a36a8d\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\eb8fbd2cf25ac1405becdd5899245b84\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08a82112e57027dc764f8a57685119ba\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\7edb7b372b1065d55a9e036564a02ae6\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\26b4c10975f40558fcd55273ae64feec\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8332f885aec1ac491ba9e522fcaa630d\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\9bd8b243de2e50f18ff71ff0309d6688\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.dji:utmiss:1.2.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\0b97bf5484229ff6aa7034fc079e9a96\jetified-utmiss-1.2.1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.dji:library-networkrtk-helper:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\068ddafecd786c6251bf2b8ca0c73022\jetified-library-networkrtk-helper-2.0.2\AndroidManifest.xml:2:1-11:12
+MERGED from [com.dji:fly-safe-database:1.0.19] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4592393be5d8f5a095c5bac6990ca149\jetified-fly-safe-database-1.0.19\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\50f27ffa86a4294cdf0b00d4ede3dffb\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:2:1-14:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\0641606da2593114a969563a59b50e3f\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
 	package
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
+		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:11-57
+	android:versionCode
+		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:2:1-69:12
+		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:4:11-69
 uses-permission#android.permission.VIBRATE
@@ -73,38 +84,38 @@ ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDe
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:7:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:8:5-75
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:14:5-76
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:14:5-76
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:14:5-76
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:14:5-76
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:8:22-73
 uses-permission#android.permission.WAKE_LOCK
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:9:5-67
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:13:5-68
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:13:5-68
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:13:5-68
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:13:5-68
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:9:22-65
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:10:5-80
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:11:5-81
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:11:5-81
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:11:5-81
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:11:5-81
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:10:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:11:5-78
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:9:5-79
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:9:5-79
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:9:5-79
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:9:5-79
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:11:22-76
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:12:5-78
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:12:5-79
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:12:5-79
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:12:5-79
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:12:5-79
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:12:22-76
 uses-permission#android.permission.CHANGE_WIFI_STATE
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:13:5-75
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:22:5-76
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:22:5-76
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:22:5-76
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:22:5-76
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:13:22-73
 uses-permission#android.permission.RECORD_AUDIO
@@ -119,8 +130,8 @@ ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDe
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:15:22-81
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:17:5-18:40
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:10:5-81
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:10:5-81
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:10:5-81
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:10:5-81
 	tools:ignore
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:18:9-37
 	android:name
@@ -131,8 +142,8 @@ ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDe
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:19:22-77
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:20:5-77
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:16:5-78
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:16:5-78
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:16:5-78
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:16:5-78
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:20:22-75
 uses-permission#android.permission.READ_PHONE_STATE
@@ -157,47 +168,47 @@ ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDe
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:26:19-67
 uses-feature#android.hardware.usb.host
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:27:5-29:35
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:30:5-32:36
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:30:5-32:36
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:30:5-32:36
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:30:5-32:36
 	android:required
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:29:9-33
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:28:9-49
 uses-feature#android.hardware.usb.accessory
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:30:5-32:34
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:33:5-35:35
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:33:5-35:35
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:33:5-35:35
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:33:5-35:35
 	android:required
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:32:9-32
 	android:name
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:31:9-54
 application
 ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:34:5-67:19
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:37:5-50:19
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:37:5-50:19
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\0c54a8c1c7d8113e93a15bc92d69f629\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\0c54a8c1c7d8113e93a15bc92d69f629\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Kylen\.gradle\caches\transforms-3\b54eeb1b4924eaeeeb969daa71f05524\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Kylen\.gradle\caches\transforms-3\b54eeb1b4924eaeeeb969daa71f05524\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
-MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b772a1af7ba604c90ff9022258f8f3c4\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b772a1af7ba604c90ff9022258f8f3c4\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:24:5-30:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:24:5-30:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\d8209e0c02c8adfe7b2ca8e23d29b3ae\transformed\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:11:5-12:19
-MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\d8209e0c02c8adfe7b2ca8e23d29b3ae\transformed\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:11:5-12:19
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:37:5-50:19
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:37:5-50:19
+MERGED from [com.google.android.material:material:1.3.0-alpha02] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\473eace78f1ee71080e2d7a244c5202b\material-1.3.0-alpha02\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0-alpha02] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\473eace78f1ee71080e2d7a244c5202b\material-1.3.0-alpha02\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c123a097e9c3863e882550694fd0eaa4\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c123a097e9c3863e882550694fd0eaa4\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\321b202495b15d0fd9b2d04148f96a78\lifecycle-extensions-2.2.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\321b202495b15d0fd9b2d04148f96a78\lifecycle-extensions-2.2.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.core:core:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8ad90eeb34a89bd33439819caa156ed3\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8ad90eeb34a89bd33439819caa156ed3\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08a82112e57027dc764f8a57685119ba\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08a82112e57027dc764f8a57685119ba\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\50f27ffa86a4294cdf0b00d4ede3dffb\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\50f27ffa86a4294cdf0b00d4ede3dffb\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:11:5-12:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8ad90eeb34a89bd33439819caa156ed3\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:38:9-35
 	android:label
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:37:9-57
 	android:allowBackup
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:36:9-35
-		REJECTED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\d8209e0c02c8adfe7b2ca8e23d29b3ae\transformed\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:11:18-45
+		REJECTED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\50f27ffa86a4294cdf0b00d4ede3dffb\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:11:18-45
 	android:theme
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml:39:9-40
 	tools:replace
@@ -258,110 +269,108 @@ uses-sdk
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
-MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\d245ace829becf0200a41e18185b52df\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
-MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\d245ace829becf0200a41e18185b52df\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:5:5-7:41
-MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:5:5-7:41
-MERGED from [:openCV] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:openCV] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.activity:activity-ktx:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\93eb45b49ce2a43a40b67265ba88bfc4\transformed\jetified-activity-ktx-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\93eb45b49ce2a43a40b67265ba88bfc4\transformed\jetified-activity-ktx-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\86fb66e08787e44db6c0d97e3e3579f5\transformed\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\86fb66e08787e44db6c0d97e3e3579f5\transformed\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\919eb377122433a197b294453bb8816c\transformed\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\919eb377122433a197b294453bb8816c\transformed\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.basgeekball:awesome-validation:4.2] C:\Users\Kylen\.gradle\caches\transforms-3\2869dc837e959ba7c83ca07432ced816\transformed\jetified-awesome-validation-4.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.basgeekball:awesome-validation:4.2] C:\Users\Kylen\.gradle\caches\transforms-3\2869dc837e959ba7c83ca07432ced816\transformed\jetified-awesome-validation-4.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\0c54a8c1c7d8113e93a15bc92d69f629\transformed\material-1.3.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\0c54a8c1c7d8113e93a15bc92d69f629\transformed\material-1.3.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Kylen\.gradle\caches\transforms-3\b54eeb1b4924eaeeeb969daa71f05524\transformed\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Kylen\.gradle\caches\transforms-3\b54eeb1b4924eaeeeb969daa71f05524\transformed\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\5bfa8decd4774daf54c13d8b075c8f34\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\5bfa8decd4774daf54c13d8b075c8f34\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\3012ef3b1c7eeb6b98af7b1bb6e010c8\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\3012ef3b1c7eeb6b98af7b1bb6e010c8\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\c3c084531a23e67c7cc7799589a6b069\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\c3c084531a23e67c7cc7799589a6b069\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\42722757c0cb497f1269d16db961a660\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\42722757c0cb497f1269d16db961a660\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b772a1af7ba604c90ff9022258f8f3c4\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b772a1af7ba604c90ff9022258f8f3c4\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\28d6cd0998b9337eb18d8c53552dfecd\transformed\fragment-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\28d6cd0998b9337eb18d8c53552dfecd\transformed\fragment-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\606483b3e71b334f17361f5fcc49316b\transformed\jetified-activity-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-3\606483b3e71b334f17361f5fcc49316b\transformed\jetified-activity-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\1fca44373f5a1419786991e0b13df4d1\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\1fca44373f5a1419786991e0b13df4d1\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\cc6bbe32783ef96e82e9eff2604692ee\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\cc6bbe32783ef96e82e9eff2604692ee\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\ca3c8d8b2c73b5b66458d2784b5f8f96\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\ca3c8d8b2c73b5b66458d2784b5f8f96\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\208fed23ff6197b085a9d43ada480a9f\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\208fed23ff6197b085a9d43ada480a9f\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\81fcb0738c4524a53c7fad4b7e9f25c7\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\81fcb0738c4524a53c7fad4b7e9f25c7\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\4e52dcd2f34afbae8742d7aec94d1bd8\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\4e52dcd2f34afbae8742d7aec94d1bd8\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\3acd01ac8a52633fadebd3d4b51d9696\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\3acd01ac8a52633fadebd3d4b51d9696\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\06f238bcb56e5aaa87be2a3841b8357b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\06f238bcb56e5aaa87be2a3841b8357b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\8454d4359bfe43fd27aab613a03ff5e6\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\8454d4359bfe43fd27aab613a03ff5e6\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\61a68699c5b02d12bde6ad3aaf6b29cc\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\61a68699c5b02d12bde6ad3aaf6b29cc\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\07aed25f1ff464d834df0e2edbae5a97\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\07aed25f1ff464d834df0e2edbae5a97\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.6.0] C:\Users\Kylen\.gradle\caches\transforms-3\8be11a59e7e2e6d7a07fab73af15f0e4\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\f42b81483c1d9cfdb1edd40f0f0a79b5\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\f42b81483c1d9cfdb1edd40f0f0a79b5\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\dc13a11acf496dd6ebc02f33a4e5da7d\transformed\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\dc13a11acf496dd6ebc02f33a4e5da7d\transformed\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b583ea773e24536d185394209982bfa5\transformed\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\b583ea773e24536d185394209982bfa5\transformed\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\32848ed94f760db99af3cdd90bde616e\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\32848ed94f760db99af3cdd90bde616e\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\0f9fa43b4f691bfba104ba14016380b0\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\0f9fa43b4f691bfba104ba14016380b0\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\983fe755960cd78868c1db73e89a511c\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\983fe755960cd78868c1db73e89a511c\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\bc0df80e2d74d4b3116a37fb05aa1691\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\bc0df80e2d74d4b3116a37fb05aa1691\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\a64d0e41059408b52299e6d676aeb9da\transformed\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\a64d0e41059408b52299e6d676aeb9da\transformed\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\d288601761e95bd24f1822ea45351565\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\d288601761e95bd24f1822ea45351565\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\13520e0ba4fc89d34e63166e0f2814f1\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\13520e0ba4fc89d34e63166e0f2814f1\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\d747cdf46d9c5f3b131f52452e85243e\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-3\d747cdf46d9c5f3b131f52452e85243e\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\547151eab1007e54fc80b9b57fc3c917\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\547151eab1007e54fc80b9b57fc3c917\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Kylen\.gradle\caches\transforms-3\5633b07ef65abc737a55e22bf9f27c4c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\83a88c5d2394e5322c8f2ba6a544996a\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\83a88c5d2394e5322c8f2ba6a544996a\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\b0d6009c370d2226d9c1407eab060243\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\b0d6009c370d2226d9c1407eab060243\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\9be16f9e08392f64d30de74313720d43\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\9be16f9e08392f64d30de74313720d43\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\e0409412d96e040c011ee7771809b59f\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-3\e0409412d96e040c011ee7771809b59f\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [:autobahn] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\autobahn\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:autobahn] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\autobahn\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [com.dji:utmiss:1.2.1] C:\Users\Kylen\.gradle\caches\transforms-3\b4c7320fc66b15259bef8a7f99c7b4b4\transformed\jetified-utmiss-1.2.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.dji:utmiss:1.2.1] C:\Users\Kylen\.gradle\caches\transforms-3\b4c7320fc66b15259bef8a7f99c7b4b4\transformed\jetified-utmiss-1.2.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.dji:library-networkrtk-helper:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\98fcb8020b85f8b6c20b13fdc7e8287d\transformed\jetified-library-networkrtk-helper-2.0.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.dji:library-networkrtk-helper:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\98fcb8020b85f8b6c20b13fdc7e8287d\transformed\jetified-library-networkrtk-helper-2.0.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.dji:fly-safe-database:1.0.19] C:\Users\Kylen\.gradle\caches\transforms-3\ce2f2308991b416e86224b2ad0c9993d\transformed\jetified-fly-safe-database-1.0.19\AndroidManifest.xml:7:5-9:41
-MERGED from [com.dji:fly-safe-database:1.0.19] C:\Users\Kylen\.gradle\caches\transforms-3\ce2f2308991b416e86224b2ad0c9993d\transformed\jetified-fly-safe-database-1.0.19\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\d8209e0c02c8adfe7b2ca8e23d29b3ae\transformed\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-3\d8209e0c02c8adfe7b2ca8e23d29b3ae\transformed\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-3\c5b3d7d122dca3551708e10b68da5c0e\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8711d713e45333f19f1f42b87a430afd\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8711d713e45333f19f1f42b87a430afd\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:5:5-7:41
+MERGED from [:openCV] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:openCV] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:autobahn] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\autobahn\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:autobahn] C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\autobahn\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.activity:activity-ktx:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\90a62a951523eb1b9854edd101b0a43d\jetified-activity-ktx-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\90a62a951523eb1b9854edd101b0a43d\jetified-activity-ktx-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\401c2124d32a58154aef3171c6bf10f4\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\401c2124d32a58154aef3171c6bf10f4\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\ae1dd4390e36c2e18bed0f6ae6a86c13\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\ae1dd4390e36c2e18bed0f6ae6a86c13\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.3.0-alpha02] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\473eace78f1ee71080e2d7a244c5202b\material-1.3.0-alpha02\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0-alpha02] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\473eace78f1ee71080e2d7a244c5202b\material-1.3.0-alpha02\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c123a097e9c3863e882550694fd0eaa4\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c123a097e9c3863e882550694fd0eaa4\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\39382bae5113f155e1aee98ba8c5dcd4\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\39382bae5113f155e1aee98ba8c5dcd4\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\9fffbed6ffa962a88eb0cb8e256f5274\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\9fffbed6ffa962a88eb0cb8e256f5274\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\5f6fa85a79b5acd9c254e9811548485d\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\5f6fa85a79b5acd9c254e9811548485d\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\321b202495b15d0fd9b2d04148f96a78\lifecycle-extensions-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\321b202495b15d0fd9b2d04148f96a78\lifecycle-extensions-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\2dfc4224a081c7fc12fd6c84b62e69a3\jetified-core-ktx-1.3.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\2dfc4224a081c7fc12fd6c84b62e69a3\jetified-core-ktx-1.3.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.fragment:fragment:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\69cb9218d05cb22c7466f4130ef9aa53\fragment-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\69cb9218d05cb22c7466f4130ef9aa53\fragment-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4003acccfc18532ab8ffdd2afbb6ec82\jetified-activity-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.3.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4003acccfc18532ab8ffdd2afbb6ec82\jetified-activity-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\28baab75c8160a126be95115f7119116\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\28baab75c8160a126be95115f7119116\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\896b190e53425a7a1cc3ee23bf4e3fcd\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\896b190e53425a7a1cc3ee23bf4e3fcd\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c5dcc160a9303a073fdbcf2f4e4e9f9f\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c5dcc160a9303a073fdbcf2f4e4e9f9f\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8448208a2b2d469e20bc603d7bb83650\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8448208a2b2d469e20bc603d7bb83650\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\81b274069356f96ab7d5c2e2e13bf1b2\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\81b274069356f96ab7d5c2e2e13bf1b2\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\b4ab0db884e1aff98e46ee040d9db027\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\b4ab0db884e1aff98e46ee040d9db027\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\38d5aa269ef35a5afa128c262568d95b\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\38d5aa269ef35a5afa128c262568d95b\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\5412288b645301744ceb4b7087f1246c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\5412288b645301744ceb4b7087f1246c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\03786c33e74738ea953c6a353b51b74c\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\03786c33e74738ea953c6a353b51b74c\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\32f13a4cb51985a60c2ecb8d58c725bb\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\32f13a4cb51985a60c2ecb8d58c725bb\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\dc9b67b083406a5dc4b47ee7aca16b0f\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\dc9b67b083406a5dc4b47ee7aca16b0f\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\1a29ca9e34f697cbee15271747188464\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\1a29ca9e34f697cbee15271747188464\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\b96a711dd56674da767d1b6cdbb6c8c5\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\b96a711dd56674da767d1b6cdbb6c8c5\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\991313db93e69b538be15d3eb932ace4\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\991313db93e69b538be15d3eb932ace4\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8ad90eeb34a89bd33439819caa156ed3\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8ad90eeb34a89bd33439819caa156ed3\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c3a5192b31c6758d7e44d010df959b9a\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\c3a5192b31c6758d7e44d010df959b9a\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\d554d9cb29331fb7458058a5ee9060d2\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\d554d9cb29331fb7458058a5ee9060d2\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\785d247ba436b78d25e740186a3e5249\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\785d247ba436b78d25e740186a3e5249\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08adc60a8bc7982b458fbc13afe9d3e9\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08adc60a8bc7982b458fbc13afe9d3e9\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\134634073a0361174d79bf4d873b803e\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\134634073a0361174d79bf4d873b803e\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\1d9e5521c83bbb9b350c25c72c612123\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\1d9e5521c83bbb9b350c25c72c612123\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\afce9cae55a453ca00dc3cd43e2be184\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\afce9cae55a453ca00dc3cd43e2be184\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4254785dd48cab153d68c0a290a36a8d\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4254785dd48cab153d68c0a290a36a8d\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\eb8fbd2cf25ac1405becdd5899245b84\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\eb8fbd2cf25ac1405becdd5899245b84\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08a82112e57027dc764f8a57685119ba\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\08a82112e57027dc764f8a57685119ba\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\7edb7b372b1065d55a9e036564a02ae6\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\7edb7b372b1065d55a9e036564a02ae6\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\26b4c10975f40558fcd55273ae64feec\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\26b4c10975f40558fcd55273ae64feec\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8332f885aec1ac491ba9e522fcaa630d\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\8332f885aec1ac491ba9e522fcaa630d\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\9bd8b243de2e50f18ff71ff0309d6688\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\9bd8b243de2e50f18ff71ff0309d6688\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.dji:utmiss:1.2.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\0b97bf5484229ff6aa7034fc079e9a96\jetified-utmiss-1.2.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.dji:utmiss:1.2.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\0b97bf5484229ff6aa7034fc079e9a96\jetified-utmiss-1.2.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.dji:library-networkrtk-helper:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\068ddafecd786c6251bf2b8ca0c73022\jetified-library-networkrtk-helper-2.0.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.dji:library-networkrtk-helper:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\068ddafecd786c6251bf2b8ca0c73022\jetified-library-networkrtk-helper-2.0.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.dji:fly-safe-database:1.0.19] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4592393be5d8f5a095c5bac6990ca149\jetified-fly-safe-database-1.0.19\AndroidManifest.xml:7:5-9:41
+MERGED from [com.dji:fly-safe-database:1.0.19] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\4592393be5d8f5a095c5bac6990ca149\jetified-fly-safe-database-1.0.19\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\50f27ffa86a4294cdf0b00d4ede3dffb\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.2] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\50f27ffa86a4294cdf0b00d4ede3dffb\jetified-libsodium-jni-aar-2.0.2\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\0641606da2593114a969563a59b50e3f\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\0641606da2593114a969563a59b50e3f\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
@@ -373,42 +382,42 @@ INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-Vide
 		ADDED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.CHANGE_NETWORK_STATE
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:15:5-79
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:15:5-79
 	android:name
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:15:22-76
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:15:22-76
 uses-permission#android.permission.KILL_BACKGROUND_PROCESSES
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:19:5-84
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:19:5-84
 	android:name
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:19:22-81
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:19:22-81
 service#dji.sdk.sdkmanager.DJIGlobalService
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:38:9-40:43
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:38:9-40:43
 	android:stopWithTask
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:40:13-40
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:40:13-40
 	android:name
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:39:13-63
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:39:13-63
 receiver#dji.logic.receiver.DJIPilotStartupReceiver
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:42:9-49:20
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:42:9-49:20
 	android:exported
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:44:13-36
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:44:13-36
 	android:name
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:43:13-70
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:43:13-70
 intent-filter#action:name:dji.go3.STARTUP+action:name:dji.go4.STARTUP
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:45:13-48:29
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:45:13-48:29
 action#dji.go3.STARTUP
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:46:17-58
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:46:17-58
 	android:name
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:46:25-55
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:46:25-55
 action#dji.go4.STARTUP
-ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:47:17-58
+ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:47:17-58
 	android:name
-		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-3\2f2848d399d7e87f4f767efc00c47ca1\transformed\jetified-dji-sdk-4.16.1\AndroidManifest.xml:47:25-55
+		ADDED from [com.dji:dji-sdk:4.16.1] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\6d6452828651d9bd50cea80489b9369a\jetified-dji-sdk-4.16.1\AndroidManifest.xml:47:25-55
 provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
 	android:authorities
-		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
 	android:multiprocess
-		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
 	android:exported
-		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-3\8032da608832c938ed3e241fc608a6ed\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Kylen\.gradle\caches\transforms-2\files-2.1\42a1a201e01ace92762d9d0aa1af9841\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79

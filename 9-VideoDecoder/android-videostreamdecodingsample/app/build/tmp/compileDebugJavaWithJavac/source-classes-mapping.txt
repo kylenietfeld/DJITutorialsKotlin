@@ -1,0 +1,2 @@
+com/dji/videostreamdecodingsample/BuildConfig.java
+ com.dji.videostreamdecodingsample.BuildConfig

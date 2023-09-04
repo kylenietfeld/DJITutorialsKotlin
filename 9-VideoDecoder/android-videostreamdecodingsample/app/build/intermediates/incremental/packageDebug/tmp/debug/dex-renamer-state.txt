@@ -1,4 +1,4 @@
-#Fri Aug 11 01:46:10 CDT 2023
+#Tue Aug 29 20:08:16 CDT 2023
 base.1=C\:\\Users\\Kylen\\OneDrive\\Documents\\GitHub\\DJITutorialsKotlin\\9-VideoDecoder\\android-videostreamdecodingsample\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes2.dex
 path.1=classes2.dex
 base.0=C\:\\Users\\Kylen\\OneDrive\\Documents\\GitHub\\DJITutorialsKotlin\\9-VideoDecoder\\android-videostreamdecodingsample\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes.dex

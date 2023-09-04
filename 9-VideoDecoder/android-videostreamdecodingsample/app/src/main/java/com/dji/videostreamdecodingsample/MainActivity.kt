@@ -35,15 +35,16 @@ import dji.common.product.Model
 import dji.common.util.CommonCallbacks
 import dji.sdk.base.BaseProduct
 import dji.sdk.camera.Camera
+import dji.common.mission.waypoint.*
+import dji.sdk.mission.waypoint.WaypointMissionOperator
+import dji.sdk.mission.waypoint.WaypointMissionOperatorListener
 import dji.sdk.camera.VideoFeeder
+import dji.sdk.mission.MissionControl
 import dji.sdk.codec.DJICodecManager
 import dji.sdk.flightcontroller.FlightController
+import dji.sdk.flightcontroller.FlightAssistant
 import dji.sdk.products.Aircraft
 import dji.sdk.sdkmanager.DJISDKManager
-import io.crossbar.autobahn.wamp.Client
-import io.crossbar.autobahn.wamp.Session
-import io.crossbar.autobahn.wamp.types.ExitInfo
-import io.crossbar.autobahn.wamp.types.SessionDetails
 import org.opencv.calib3d.Calib3d
 import org.opencv.core.*
 import org.opencv.imgproc.Imgproc
@@ -51,13 +52,23 @@ import org.opencv.objdetect.ArucoDetector
 import org.opencv.objdetect.DetectorParameters
 import org.opencv.objdetect.Objdetect
 import java.nio.ByteBuffer
-import java.util.concurrent.CompletableFuture
+import kotlin.math.abs
+import io.crossbar.autobahn.wamp.exceptions.*
+
+
+fun main() {
+    val number = -5
+    val absoluteValue = abs(number)
+    println("The absolute value of $number is $absoluteValue")
+}
 
 
 class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
 
     private var flightController: FlightController? = null
+    private var flightControllerState: FlightControllerState? = null
+    private var waypointMissionBuilder: WaypointMission.Builder? = null
     private var surfaceCallback: SurfaceHolder.Callback? = null
 
     private enum class DemoType {
@@ -91,6 +102,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var videoViewWidth = 0
     private var videoViewHeight = 0
     private var count = 0
+    private var count2 = 0
     private var prevtime = System.currentTimeMillis()
     private var curtime = System.currentTimeMillis()
     private var doneProcessing: Boolean = true
@@ -101,14 +113,15 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     var product: BaseProduct? = null
     private var takeoff: Boolean = false
     private var gimbaldown: Boolean = false
-    private var dPitch = 0f
-    private var dRoll = 0f
-    private var dYaw= 0f
-    private var dThrottle = 0f
+    private var dPitch = 0.0f
+    private var dRoll = 0.0f
+    private var dYaw= 0.0f
+    private var dThrottle = 0.0f
     private var markerSizeInMeters = 0.1 // Example: Marker size is 10 cm (0.1 meters)
     private var focalLengthInPixels = 1320.0 // Example: Focal length of the camera in pixels
-
     private var gimbalPitchAngle = -90.0f
+    private var droneHeight = 0.0f
+    private var velocityRoll = 0.0f
     private val url = "ws://24.116.171.128:8080/ws"
     private val realm = "realm1"
     private val topic = "com.myapp.images"
@@ -118,6 +131,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     private var t1Value = 0f
     private var t2Value = 0f
     private var t3Value = 0f
+    private var PrecisionLanding = false
 
 
 
@@ -173,18 +187,28 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
         //connectToServer()
         //myImageView = findViewById(R.id.my_image_view)
+        //connect("ws://184.155.87.8:8080/ws","realm1")
+        //val authenticators: List<IAuthenticator> = ArrayList()
+        try {
+            //
+        }catch (e: Exception) {
+            // Handle error
+            showToast("Error receiving response from server: ${e.message}")
+        }
+
 
         val aircraft: Aircraft? = DJISDKManager.getInstance().product as? Aircraft
         if (aircraft != null) {
             // Get the flight controller instance
             //flightController: FlightController? = aircraft.flightController
+
             flightController = aircraft.flightController
             if (flightController != null) {
-                showToast("Flight controller available!")
-                flightController!!.verticalControlMode = VerticalControlMode.VELOCITY
-                flightController!!.rollPitchControlMode = RollPitchControlMode.ANGLE
-                flightController!!.yawControlMode = YawControlMode.ANGLE
-                flightController!!.rollPitchCoordinateSystem = FlightCoordinateSystem.BODY
+
+                flightController!!.setVerticalControlMode(VerticalControlMode.POSITION)
+                flightController!!.setRollPitchControlMode(RollPitchControlMode.VELOCITY)
+                flightController!!.setYawControlMode(YawControlMode.ANGULAR_VELOCITY)
+                flightController!!.setRollPitchCoordinateSystem(FlightCoordinateSystem.BODY)
                 flightController!!.setVirtualStickModeEnabled(true, null)
 
             } else {
@@ -200,9 +224,23 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                 .mode(RotationMode.ABSOLUTE_ANGLE) // Use ABSOLUTE_ANGLE mode for precise angle control.
                 .build()
             gimbal.rotate(rotation,null)
-            showToast("Gimbal available. Moving to -90 degrees")
+            gimbaldown = true
+
         }
 
+        flightControllerState = flightController?.state
+
+
+        val flightAssistant = aircraft.flightController.flightAssistant
+
+        // Enable precision landing
+        flightAssistant?.setPrecisionLandingEnabled(true, null)
+        flightAssistant?.setVisionAssistedPositioningEnabled(true,null)
+
+        if (flightControllerState != null && gimbal != null  && flightController != null && flightAssistant != null) {
+            showToast("Flight Controller, Gimbal-90, flightControllerState, flightAssistant")
+
+        }
 
 
     }
@@ -229,16 +267,88 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         videostreamPreviewSf!!.isClickable = true
         videostreamPreviewSf!!.setOnClickListener {
             //Do things on screen click
-            takeoff()
-            //focalLengthInPixels = focalLengthInPixels + 10.0
-            //showToast("focalLengthInPixels: ${focalLengthInPixels}")
+
+
+
+            //Precision Takeoff
+            flightController!!.startPrecisionTakeoff(object : CommonCallbacks.CompletionCallback<DJIError> {
+                override fun onResult(djiError: DJIError?) {
+                    if (djiError == null) {
+                        showToast("Precision Takeoff!")
+
+                    } else {
+                        showToast("Precision Takeoff failed: $djiError")
+                    }
+                }
+            })
+            showToast("Sleep 5 Seconds!")
+            Thread.sleep((5 * 1000).toLong()) // Sleep 5 seconds
+
+            //Move up to 12m
+            flightController?.sendVirtualStickFlightControlData(FlightControlData(0.0f, 0.0f, 0.0f, 12.0f), object : CommonCallbacks.CompletionCallback<DJIError> {
+                override fun onResult(djiError: DJIError?) {
+                    if (djiError == null) {
+                        showToast("12m high!")
+                    } else {
+                        showToast("12m high failed: $djiError")
+                    }
+                }
+            })
+            showToast("Sleep 5 Seconds!")
+            Thread.sleep((5 * 1000).toLong()) // Sleep 5 seconds
+
+
+
+            //Move forward ~15 meters
+            // Calculate the time required to move 15 meters at the desired velocity
+            val forwardVelocity = 3.0 // Adjust as needed
+            val distanceToMove = 15.0 // 15 meters
+            val durationInSeconds = distanceToMove / forwardVelocity
+            flightController?.sendVirtualStickFlightControlData(FlightControlData(forwardVelocity.toFloat(), 0.0f, 0.0f, 12.0f), object : CommonCallbacks.CompletionCallback<DJIError> {
+                override fun onResult(djiError: DJIError?) {
+                    if (djiError == null) {
+                        showToast("12m high!")
+                    } else {
+                        showToast("12m high failed: $djiError")
+                    }
+                }
+            })
+            // Delay for the calculated duration to allow the drone to move forward
+            Thread.sleep((durationInSeconds * 1000).toLong()) // Convert seconds to milliseconds
+            flightController?.sendVirtualStickFlightControlData(FlightControlData(0.0f, 0.0f, 0.0f, 12.0f), null)
+            showToast("Stopping!")
+            Thread.sleep((3 * 1000).toLong())
+            showToast("Going Home!")
+            
+
+            //Go Home
+            flightController?.startGoHome(null)
+            Thread.sleep((60 * 1000).toLong())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
 
-            updateUIVisibility()
+        updateUIVisibility()
 
     }
+
 
     private fun takeoff() {
         flightController?.startTakeoff(object : CommonCallbacks.CompletionCallback<DJIError> {
@@ -249,6 +359,19 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                     count=0
                 } else {
                     showToast("Takeoff failed: $djiError")
+                }
+            }
+        })
+
+    }
+    private fun land() {
+        takeoff=false
+        flightController?.startLanding(object : CommonCallbacks.CompletionCallback<DJIError> {
+            override fun onResult(djiError: DJIError?) {
+                if (djiError == null) {
+                    showToast("Aircraft is landing!")
+                } else {
+                    showToast("Landing failed: $djiError")
                 }
             }
         })
@@ -307,7 +430,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                     )
                     lastupdate = System.currentTimeMillis()
                 }
-               // val image = mCodecManager?.getBitmap(applicationContext)
+                // val image = mCodecManager?.getBitmap(applicationContext)
 
 
                 when (demoType) {
@@ -515,13 +638,13 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
             //Show toast of variables of interest
             //curtime = System.currentTimeMillis()
-           // if (count % 39 == 0) {
-               // showToast("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count) )
-                //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
-           // }
+            // if (count % 39 == 0) {
+            // showToast("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count) )
+            //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime)).plus(" Yaw: ").plus(yaw).plus(" count: ").plus(count)) }
+            // }
             //prevtime = System.currentTimeMillis()
-           // if (count == 100) {
-             //   connect2("ws://184.155.86.32:8080/ws", "realm1");
+            // if (count == 100) {
+            //   connect2("ws://184.155.86.32:8080/ws", "realm1");
             //}
 
 
@@ -538,8 +661,9 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             val tvec = Mat()
             val distCoeffs = MatOfDouble()
 
-            if (ids.total() > 0)  {      //Aruco Found
+            if (ids.total() > 0 && ids.total() < 2 && ids.get(0,0)[0].toFloat() == 0.0f )  {      //Aruco Found //change if id includes ID 0
 
+                if (count%10==0){runOnUiThread { displayPath("Detected marker") }}
                 val detectedcorners = corners[0]
 
                 val cameraMatrix = Mat(3, 3, CvType.CV_64F)
@@ -576,61 +700,71 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                         tvec
                     )
                 } catch (e: Exception) {
-                // Handle error
-                showToast("Exception: ${e.message}")
-            }
-
-                curtime = System.currentTimeMillis()
-                if (count % 20 == 0) {
-                    runOnUiThread { displayPath("Detected marker") }
-
-                    try {
-                        if (rvec != null && tvec != null) {
-                            r1Value = rvec.get(0, 0)[0].toFloat()
-                            r2Value = rvec.get(1, 0)[0].toFloat()
-                            r3Value = rvec.get(2, 0)[0].toFloat()
-
-                            val message1 = "R (rad):${"%.2f".format(r1Value)} , ${"%.2f".format(r2Value)} , ${"%.2f".format(r3Value)}"
-                            runOnUiThread { displayPath(message1) }
-
-                            t1Value = tvec.get(0, 0)[0].toFloat()
-                            t2Value = tvec.get(1, 0)[0].toFloat()
-                            t3Value = tvec.get(2, 0)[0].toFloat()
-
-                            val message2 = "T (m):${"%.2f".format(t1Value)} , ${"%.2f".format(t2Value)} , ${"%.2f".format(t3Value)}"
-                            runOnUiThread { displayPath(message2) }
-
-                            runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime))) }
-                        } else {
-                            showToast("rvec or tvec is null.")
-                        }
-                    } catch (e: Exception) {
-                        // Handle error
-                        showToast("Exception: ${e.message}")
-                    }
+                    // Handle error
+                    showToast("Exception: ${e.message}")
                 }
-                prevtime = System.currentTimeMillis()
+
+                //curtime = System.currentTimeMillis()
+                //prevtime = System.currentTimeMillis()
 
 
 
-                if (takeoff && gimbaldown && count>100) {
-                    val flightControllerState: FlightControllerState? = flightController?.state
-                    val Kp = 1.0f
+
+                try {
+                    if (rvec != null && tvec != null) {
+                        r1Value = rvec.get(0, 0)[0].toFloat()
+                        r2Value = rvec.get(1, 0)[0].toFloat()
+                        r3Value = rvec.get(2, 0)[0].toFloat()
+
+                        val message1 = "R (rad):${"%.2f".format(r1Value)} , ${"%.2f".format(r2Value)} , ${"%.2f".format(r3Value)}"
+                        //runOnUiThread { displayPath(message1) }
+
+                        t1Value = tvec.get(0, 0)[0].toFloat()
+                        t2Value = tvec.get(1, 0)[0].toFloat()
+                        t3Value = tvec.get(2, 0)[0].toFloat()
+
+                        val message2 = "T (m):${"%.2f".format(t1Value)} , ${"%.2f".format(t2Value)} , ${"%.2f".format(t3Value)}"
+                        //runOnUiThread { displayPath(message2) }
+
+                        //runOnUiThread { displayPath("Time (ms): ".plus(curtime.minus(prevtime))) }
+                    } else {
+                        showToast("rvec or tvec is null.")
+                    }
+                } catch (e: Exception) {
+                    // Handle error
+                    showToast("Exception: ${e.message}")
+                }
+
+
+                if (takeoff && gimbaldown) {
+
+                    val Kp = 0.1f
                     val Kd = -1.0f
 
                     var velocityPitch = flightControllerState?.velocityX ?: 0.0f
-                    var velocityRoll = flightControllerState?.velocityY ?: 0.0f
-                    dThrottle = -0.1f
+                    velocityRoll = flightControllerState?.velocityY ?: 0.0f
+                    droneHeight = flightControllerState?.ultrasonicHeightInMeters ?: 0.0f
+                    dThrottle = -0.05f
 
-                    //MAY NEED TO MULITPLY BY -1. Also check if x and y are pitch and roll
                     dRoll = Kp*t1Value + Kd*velocityRoll
-                    dPitch = Kp*t2Value + Kd*velocityPitch
+                    dPitch = -1*(Kp*t2Value + Kd*velocityPitch)
 
-                    flightController!!.sendVirtualStickFlightControlData(FlightControlData(dRoll, dPitch, dYaw, dThrottle), null)
+                    if(abs(t1Value) > 0.03 || abs(t2Value) > 0.03 || (droneHeight?:0.0f) > 1.3f) { //  || (droneHeight?:0.0f) > 1.2f
+                        flightController!!.sendVirtualStickFlightControlData(FlightControlData(dRoll, dPitch, dYaw, dThrottle), null)
+
+                        if(count2++%5==0){
+                            //val message = "dRoll: ${"%.2f".format(dRoll)} dPitch: ${"%.2f".format(dPitch)} droneHeight: ${"%.2f".format(droneHeight)} t1Value: ${"%.2f".format(t1Value)} t2Value: ${"%.2f".format(t2Value)} t3Value: ${"%.2f".format(t3Value)}"
+                            val message = "velocityPitch: ${"%.6f".format(velocityPitch)} velocityRoll: ${"%.6f".format(velocityRoll)}"
+                            runOnUiThread { displayPath(message) }}
+                    }else{
+                        flightController!!.sendVirtualStickFlightControlData(FlightControlData(0.0f, 0.0f, 0.0f, 0.0f), null)
+                        land()
+                    }
+
+
                 }
 
-             }else{
-                runOnUiThread { displayPath("No aruco marker") }
+
             }
 
             //Detection is done. Ready to start another.
@@ -669,6 +803,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     }
 
     private fun handleYUVClick() {
+
         if (screenShot!!.isSelected) {
             screenShot!!.text = "YUV Screen Shot"
             screenShot!!.isSelected = false
@@ -713,7 +848,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         }
         path = """
             $path
-            
+           
             """.trimIndent()
         stringBuilder!!.append(path)
         savePath!!.text = stringBuilder.toString()
@@ -848,13 +983,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
     }
 */
 
-    private fun connect(websocketURL: String, realm: String): CompletableFuture<ExitInfo> {
 
-        val wampSession = Session()
-        wampSession.addOnJoinListener { session, details -> showToast("Joined session.") }
-        val client = Client(wampSession, websocketURL, realm)
-        return client.connect()
-    }
 
 
 

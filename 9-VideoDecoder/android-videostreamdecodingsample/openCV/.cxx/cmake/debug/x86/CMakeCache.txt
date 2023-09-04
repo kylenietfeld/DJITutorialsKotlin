@@ -18,7 +18,7 @@
 ANDROID_ABI:UNINITIALIZED=x86
 
 //No help, variable specified on the command line.
-ANDROID_NDK:UNINITIALIZED=C:\Users\Kylen\AppData\Local\Android\Sdk\ndk\21.4.7075529
+ANDROID_NDK:UNINITIALIZED=C:\Users\Kylen\AppData\Local\Android\Sdk\ndk\21.0.6113669
 
 //No help, variable specified on the command line.
 ANDROID_PLATFORM:UNINITIALIZED=android-21
@@ -30,10 +30,10 @@ ANDROID_STL:UNINITIALIZED=c++_shared
 CMAKE_ANDROID_ARCH_ABI:UNINITIALIZED=x86
 
 //No help, variable specified on the command line.
-CMAKE_ANDROID_NDK:UNINITIALIZED=C:\Users\Kylen\AppData\Local\Android\Sdk\ndk\21.4.7075529
+CMAKE_ANDROID_NDK:UNINITIALIZED=C:\Users\Kylen\AppData\Local\Android\Sdk\ndk\21.0.6113669
 
 //Archiver
-CMAKE_AR:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ar.exe
+CMAKE_AR:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ar.exe
 
 //Flags used by the compiler during all build types.
 CMAKE_ASM_FLAGS:STRING=
@@ -126,7 +126,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Project
 CMAKE_LIBRARY_OUTPUT_DIRECTORY:UNINITIALIZED=C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\cmake\debug\obj\x86
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ld.exe
+CMAKE_LINKER:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ld.exe
 
 //No help, variable specified on the command line.
 CMAKE_MAKE_PROGRAM:UNINITIALIZED=C:\Users\Kylen\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
@@ -147,22 +147,19 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-nm.exe
+CMAKE_NM:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-nm.exe
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-objcopy.exe
+CMAKE_OBJCOPY:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-objcopy.exe
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-objdump.exe
+CMAKE_OBJDUMP:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-objdump.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Project
 
 //Ranlib
-CMAKE_RANLIB:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ranlib.exe
-
-//No help, variable specified on the command line.
-CMAKE_RUNTIME_OUTPUT_DIRECTORY:UNINITIALIZED=C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\build\intermediates\cmake\debug\obj\x86
+CMAKE_RANLIB:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ranlib.exe
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -202,7 +199,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-strip.exe
+CMAKE_STRIP:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-strip.exe
 
 //No help, variable specified on the command line.
 CMAKE_SYSTEM_NAME:UNINITIALIZED=Android
@@ -211,7 +208,7 @@ CMAKE_SYSTEM_NAME:UNINITIALIZED=Android
 CMAKE_SYSTEM_VERSION:UNINITIALIZED=21
 
 //The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake
+CMAKE_TOOLCHAIN_FILE:FILEPATH=C:/Users/Kylen/AppData/Local/Android/Sdk/ndk/21.0.6113669/build/cmake/android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console

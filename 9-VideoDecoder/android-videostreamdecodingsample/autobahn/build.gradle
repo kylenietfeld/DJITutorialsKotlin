@@ -7,7 +7,7 @@ apply plugin: IS_ANDROID ? 'com.android.library': 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-def ARTIFACT_JAVA = 'autobahn-java' //changed
+def ARTIFACT_JAVA = 'autobahn-java'
 def ARTIFACT_NEXT = 'autobahn'
 
 def groupID = 'io.crossbar.autobahn'
@@ -15,7 +15,7 @@ def licenseName = 'MIT'
 def licenseUrl = 'https://opensource.org/licenses/MIT'
 def relVersion = System.getenv().containsKey('AUTOBAHN_BUILD_VERSION') ? System.getenv(
         'AUTOBAHN_BUILD_VERSION'): '21.4.1'
-def siteUrl = 'https://github.com/crossbario/autobahn-java' //changed
+def siteUrl = 'https://github.com/crossbario/autobahn-java'
 def SONATYPE_USER = System.getenv().containsKey('SONATYPE_USER') ? System.getenv('SONATYPE_USER'): ''
 def SONATYPE_PASS = System.getenv().containsKey('SONATYPE_PASS') ? System.getenv('SONATYPE_PASS'): ''
 
@@ -222,3 +222,11 @@ afterEvaluate {
         }
     }
 }
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+

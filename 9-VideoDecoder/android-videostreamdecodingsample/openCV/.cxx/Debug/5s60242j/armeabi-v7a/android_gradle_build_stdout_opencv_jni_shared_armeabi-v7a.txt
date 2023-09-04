@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\Users\Kylen\OneDrive\Documents\GitHub\DJITutorialsKotlin\9-VideoDecoder\android-videostreamdecodingsample\openCV\.cxx\Debug\5s60242j\armeabi-v7a'
+ninja: no work to do.

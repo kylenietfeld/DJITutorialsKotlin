@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Kylen\\OneDrive\\Documents\\GitHub\\DJITutorialsKotlin\\9-VideoDecoder\\android-videostreamdecodingsample\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-3\\5bfa8decd4774daf54c13d8b075c8f34\\transformed\\appcompat-1.2.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-2\\files-2.1\\39382bae5113f155e1aee98ba8c5dcd4\\appcompat-1.2.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-3\\0c54a8c1c7d8113e93a15bc92d69f629\\transformed\\material-1.3.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-2\\files-2.1\\473eace78f1ee71080e2d7a244c5202b\\material-1.3.0-alpha02\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,24,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

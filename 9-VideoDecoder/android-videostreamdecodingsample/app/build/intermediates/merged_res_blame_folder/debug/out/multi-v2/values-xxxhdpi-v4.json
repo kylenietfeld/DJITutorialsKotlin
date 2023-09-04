@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Kylen\\OneDrive\\Documents\\GitHub\\DJITutorialsKotlin\\9-VideoDecoder\\android-videostreamdecodingsample\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-3\\2f2848d399d7e87f4f767efc00c47ca1\\transformed\\jetified-dji-sdk-4.16.1\\res\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
+                    "source": "C:\\Users\\Kylen\\.gradle\\caches\\transforms-2\\files-2.1\\6d6452828651d9bd50cea80489b9369a\\jetified-dji-sdk-4.16.1\\res\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
