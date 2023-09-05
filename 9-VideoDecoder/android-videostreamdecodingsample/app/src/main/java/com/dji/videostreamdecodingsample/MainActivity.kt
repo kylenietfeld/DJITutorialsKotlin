@@ -6,7 +6,7 @@ package com.dji.videostreamdecodingsample
 //import java.io.BufferedOutputStream
 //import java.net.InetSocketAddress
 //import java.net.Socket
-
+import org.opencv.imgcodecs.Imgcodecs
 import android.app.Activity
 import android.graphics.SurfaceTexture
 import android.media.MediaFormat
@@ -54,6 +54,22 @@ import org.opencv.objdetect.Objdetect
 import java.nio.ByteBuffer
 import kotlin.math.abs
 import io.crossbar.autobahn.wamp.exceptions.*
+import org.opencv.core.CvType
+import org.opencv.core.Mat
+
+import java.io.OutputStreamWriter
+import java.net.InetSocketAddress
+import java.net.Socket
+
+import org.opencv.core.MatOfByte
+
+import java.io.ByteArrayOutputStream
+import java.io.DataOutputStream
+import java.io.BufferedOutputStream
+
+import org.opencv.core.MatOfInt
+
+
 
 
 fun main() {
@@ -185,23 +201,13 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         setContentView(R.layout.activity_main)
         initUi()
 
-        //connectToServer()
-        //myImageView = findViewById(R.id.my_image_view)
-        //connect("ws://184.155.87.8:8080/ws","realm1")
-        //val authenticators: List<IAuthenticator> = ArrayList()
-        try {
-            //
-        }catch (e: Exception) {
-            // Handle error
-            showToast("Error receiving response from server: ${e.message}")
-        }
+        connectToServer()
 
 
         val aircraft: Aircraft? = DJISDKManager.getInstance().product as? Aircraft
         if (aircraft != null) {
-            // Get the flight controller instance
-            //flightController: FlightController? = aircraft.flightController
 
+            // Get the flight controller instance
             flightController = aircraft.flightController
             if (flightController != null) {
 
@@ -269,7 +275,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             //Do things on screen click
 
 
-
+            /*
             //Precision Takeoff
             flightController!!.startPrecisionTakeoff(object : CommonCallbacks.CompletionCallback<DJIError> {
                 override fun onResult(djiError: DJIError?) {
@@ -319,12 +325,12 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             showToast("Stopping!")
             Thread.sleep((3 * 1000).toLong())
             showToast("Going Home!")
-            
+
 
             //Go Home
             flightController?.startGoHome(null)
             Thread.sleep((60 * 1000).toLong())
-
+            */
 
 
 
@@ -617,11 +623,11 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
             //Get latest parameters from the server
             //yaw = receiveResponseFromServer() ?: 0.0f
-            //yaw = 0.0f
+
+            sendFrameToServer(rgbMat)
 
 
-
-
+            /*
             //Fill bytes with YUV data
             val bytes = ByteArray(dataSize)
             yuvFrame[bytes]
@@ -633,7 +639,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             Imgproc.cvtColor(yuvMat, rgbMat, Imgproc.COLOR_YUV2RGB_I420)
 
 
-            //sendFrameToServer(rgbMat)
+
 
 
             //Show toast of variables of interest
@@ -766,7 +772,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
 
 
             }
-
+            */
             //Detection is done. Ready to start another.
             doneProcessing = true
 
@@ -874,7 +880,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
                 return model === Model.MATRICE_300_RTK
             }
     }
-/*
+
     private var socket: Socket? = null // For connection to Server
 
     private fun connectToServer() {
@@ -934,19 +940,6 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
         return null
     }
 
-    fun getFlightController(): FlightController? {
-        val aircraft = product as Aircraft?
-        val flightController = aircraft?.flightController
-
-        if (flightController == null) {
-            showToast("Flight controller not available")
-        } else {
-            showToast("Flight controller is available!")
-        }
-
-        return flightController
-    }
-
     private fun sendFrameToServer(mat: Mat) {
         if (socket != null && socket!!.isConnected) {
             val outputStream = socket?.getOutputStream()
@@ -981,7 +974,7 @@ class MainActivity : Activity(), DJICodecManager.YuvDataCallback {
             showToast("Socket is not connected")
         }
     }
-*/
+
 
 
 
